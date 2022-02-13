@@ -1,6 +1,13 @@
 import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
+
+import Home from './pages/Index';
+import ForgetPassword from './pages/Forget-Password';
+import ResetPassword from './pages/Reset-Password';
+import SelectWorkspace from './pages/Select-Workspace';
+import SelectProject from './pages/Select-Project';
+
 import Menu from './components/Menu';
 import Page from './pages/Page';
 
@@ -23,23 +30,44 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+export const Routes = {
+  indexURL: '/index',
+  forgetPassword: '/forget-password',
+  resetPassword: '/reset-password',
+  selectWorkspace: '/select-workspace',
+  selectProject: '/select-project'
+}
+
 setupIonicReact();
 
 const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <IonSplitPane contentId="main">
-          <Menu />
+        {/* <IonSplitPane contentId="main"> */}
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Redirect to="/page/Inbox" />
+              {/* <Redirect to="/page/Inbox" /> */}
+              <Home />
+            </Route>
+            <Route exact path={Routes.forgetPassword}>
+              <ForgetPassword />
+            </Route>
+            <Route exact path={Routes.resetPassword}>
+              <ResetPassword />
+            </Route>
+            <Route exact path={Routes.selectWorkspace}>
+              <SelectWorkspace />
+            </Route>
+            <Route exact path={Routes.selectProject}>
+              <SelectProject />
             </Route>
             <Route path="/page/:name" exact={true}>
               <Page />
             </Route>
           </IonRouterOutlet>
-        </IonSplitPane>
+          
+        {/* </IonSplitPane> */}
       </IonReactRouter>
     </IonApp>
   );

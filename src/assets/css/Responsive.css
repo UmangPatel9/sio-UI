@@ -1,0 +1,121 @@
+@media (prefers-color-scheme: dark) {
+    ion-footer ion-list.list-md,
+    ion-footer ion-list ion-item {
+        background-color: #fff;
+    }
+}
+
+
+@media (min-width: 1200px) { 
+
+    
+
+}
+
+
+@media (min-width: 992px){
+    
+}
+
+
+@media (max-width: 1366px) { 
+
+    
+
+}
+
+
+@media (max-width: 1199px) {
+
+    
+
+}
+
+
+@media (max-width: 991px) {
+
+    /* header css start */
+    body .button.back-buton,
+    body .button.button-clear {
+        z-index: 1;
+    }
+    /* header css end */
+
+}
+
+
+@media (max-width: 767px) {
+
+    /* header css start */
+    .logo {
+        max-width: 36vw;
+    }
+    /* header css close */
+
+    /* Select workspace start */
+    .login-form-row,
+    .main-row {
+        padding: 30px 15px 0;
+    }
+    /* Select workspace end */
+
+}
+
+
+@media (max-width: 767px) and (orientation : landscape)  {
+
+    /* header css start */
+    .main-header {
+        padding: 15px 0;
+    }
+    .logo {
+        max-width: 100px;
+    }
+    /* header css close */
+}
+
+
+@media screen and (max-width: 575px) {
+
+    /* header css start */
+    .main-header {
+        border-radius: 0 0 10px 10px;
+        padding: 25px 0;
+    }
+    .header-page-title {
+        font-size: 20px;
+    }
+    /* header css close */
+
+    /* button css start */
+    body .button.button-block,
+    body .button.button-full, 
+    body .button.button-solid,
+    body .button.button-outline {
+        font-size: 16px;
+        --padding-start: 30px;
+        --padding-end: 30px;
+    }
+    /* button css end */
+
+    /* login css start */
+    .login-header ion-img {
+        max-width: 100px;
+        margin: 0 auto;
+    }
+    /* login css end */
+
+}
+
+
+@media (max-width: 375px) {
+
+    
+
+}
+
+
+@media (max-width: 320px) {
+
+    
+}
