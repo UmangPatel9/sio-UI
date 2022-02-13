@@ -502,6 +502,9 @@ body .login-form .native-input.sc-ion-input-md {
 /* Login page end */
 
 /* Select workspace page start  */
+.main-row {
+    justify-content: center;
+}
 ion-card {
     --background: transparent;
     border: 2px solid #808080;
