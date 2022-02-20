@@ -56,17 +56,8 @@ const ResetPassword: React.FC = () => {
                               <IonRow>
                                  <IonCol size="12" className="ion-margin-top">
                                     <IonLabel className="form-lable">Enter new password:</IonLabel>
-                                    {/* <IonInput type="password" placeholder="Password" /> */}
-                                    {/* <IonInput
-                                       mode="md" 
-                                       type="password" 
-                                       // {...register('password1', {
-                                       //    required: 'Password is Required'
-                                       // })}
-                                    /> */}
                                     <Controller
                                        render={({ field: { onChange, onBlur, value } }) => (
-                                          // <IonInput onIonChange={onChange} />
                                           <IonInput 
                                              type="password"
                                              onIonChange={onChange}
@@ -96,24 +87,8 @@ const ResetPassword: React.FC = () => {
 
                                  <IonCol size="12" className="ion-margin-top">
                                     <IonLabel className="form-lable">Confirm new password:</IonLabel>
-                                    {/* <IonInput type="password" placeholder="Password" /> */}
-                                    {/* <IonInput 
-                                       mode="md"
-                                       type="password" 
-                                       // {...register('password2', {
-                                       //    // required: true,
-                                       //    validate: {
-                                       //       noMatch: (value: string) => {
-                                       //          return value !== getValues("password1")
-                                       //             ? "Passwords do not match"
-                                       //             : undefined;
-                                       //       },
-                                       //    },
-                                       // })}
-                                    /> */}
                                     <Controller
                                        render={({ field: { onChange, onBlur, value } }) => (
-                                          // <IonInput onIonChange={onChange} />
                                           <IonInput 
                                              type="password"
                                              onIonChange={onChange}

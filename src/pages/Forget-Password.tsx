@@ -73,7 +73,7 @@ const ForgetPassword: React.FC = () => {
                                       onIonChange={onChange}
                                       onBlur={onBlur}
                                       value={value}
-                                      className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+                                      className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                                       placeholder="" 
                                     />
                                 )}
