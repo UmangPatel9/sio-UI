@@ -32,7 +32,7 @@ const SelectWorkspace: React.FC = () => {
     return (
       <IonPage>
   
-        <Header class="" />
+        <Header class="" onBack={doNothing}/>
   
         <IonContent fullscreen>
           <IonGrid className="full-height-div">

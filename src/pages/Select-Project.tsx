@@ -32,11 +32,15 @@ const SelectProject: React.FC = () => {
     const pageBack = () => {
         history.goBack();
     };
+
+    const doNothing = () => {
+
+    }
  
     return (
       <IonPage>
   
-        <Header class="" />
+        <Header class=""   onBack={doNothing} />
   
         <IonContent fullscreen>
           <IonGrid className="full-height-div">

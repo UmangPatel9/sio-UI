@@ -10,7 +10,7 @@ import {
   IonImg  
 } from '@ionic/react';
 
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, Controller } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 
 // import Header from '../components/Header';
@@ -21,7 +21,7 @@ import '../assets/css/Responsive.css';
 const ResetPassword: React.FC = () => {
 
    const methods = useForm();
-   const { register, trigger, handleSubmit, getValues, formState: { errors } } = methods;
+   const { register,  handleSubmit, getValues, control, formState: { errors } } = methods;
 
    const onSubmit = (data: any) => {
       console.log(data);
@@ -57,12 +57,35 @@ const ResetPassword: React.FC = () => {
                                  <IonCol size="12" className="ion-margin-top">
                                     <IonLabel className="form-lable">Enter new password:</IonLabel>
                                     {/* <IonInput type="password" placeholder="Password" /> */}
-                                    <IonInput
+                                    {/* <IonInput
                                        mode="md" 
                                        type="password" 
                                        // {...register('password1', {
                                        //    required: 'Password is Required'
                                        // })}
+                                    /> */}
+                                    <Controller
+                                       render={({ field: { onChange, onBlur, value } }) => (
+                                          // <IonInput onIonChange={onChange} />
+                                          <IonInput 
+                                             type="password"
+                                             onIonChange={onChange}
+                                             onBlur={onBlur}
+                                             value={value}
+                                             className={`form-control ${errors.password1 ? 'is-invalid' : ''}`}
+                                             placeholder="" 
+                                          />
+                                       )}
+                                       control={control}
+                                       name="password1"
+                                       rules={{
+                                          required: 'The password must match the following criteria: Minimum 8 characters, Include at least 1 letter, Include at least 1 number and maximum 12 characters long.',
+                                          pattern: {
+                                             value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/i,
+                                             message: 'The password must match the following criteria: Minimum 8 characters, Include at least 1 letter, Include at least 1 number and maximum 12 characters long.'
+                                          }
+                                            
+                                       }}
                                     />
                                     <ErrorMessage
                                        errors={errors}
@@ -74,7 +97,7 @@ const ResetPassword: React.FC = () => {
                                  <IonCol size="12" className="ion-margin-top">
                                     <IonLabel className="form-lable">Confirm new password:</IonLabel>
                                     {/* <IonInput type="password" placeholder="Password" /> */}
-                                    <IonInput 
+                                    {/* <IonInput 
                                        mode="md"
                                        type="password" 
                                        // {...register('password2', {
@@ -87,6 +110,31 @@ const ResetPassword: React.FC = () => {
                                        //       },
                                        //    },
                                        // })}
+                                    /> */}
+                                    <Controller
+                                       render={({ field: { onChange, onBlur, value } }) => (
+                                          // <IonInput onIonChange={onChange} />
+                                          <IonInput 
+                                             type="password"
+                                             onIonChange={onChange}
+                                             onBlur={onBlur}
+                                             value={value}
+                                             className={`form-control ${errors.password2 ? 'is-invalid' : ''}`}
+                                             placeholder="" 
+                                          />
+                                       )}
+                                       control={control}
+                                       name="password2"
+                                       rules={{
+                                          // required: "Password is required",
+                                          validate: {
+                                             noMatch: (value: string) => {
+                                                return value !== getValues("password1")
+                                                   ? "Passwords do not match"
+                                                   : undefined;
+                                             },
+                                          },  
+                                       }}
                                     />
                                     <ErrorMessage
                                        errors={errors}

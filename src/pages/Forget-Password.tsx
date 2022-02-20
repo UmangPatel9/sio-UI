@@ -10,7 +10,7 @@ import {
    IonImg  
 } from '@ionic/react';
 
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, Controller } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 
 // import Header from '../components/Header';
@@ -21,7 +21,7 @@ import '../assets/css/Responsive.css';
 const ForgetPassword: React.FC = () => {
 
    const methods = useForm();
-   const { register, handleSubmit, formState: { errors } } = methods;
+   const { register, handleSubmit, control,formState: { errors } } = methods;
 
    const onSubmit = (data: any) => {
       console.log(data);
@@ -53,7 +53,7 @@ const ForgetPassword: React.FC = () => {
 
                               <IonLabel className="form-lable ion-margin-top" >Email Address:</IonLabel>
                               {/* <IonInput className="ion-margin-top" placeholder="Email"/> */}
-                              <IonInput
+                              {/* <IonInput
                                  mode="md"
                                  type="email"
                                  // placeholder="Email"
@@ -64,6 +64,28 @@ const ForgetPassword: React.FC = () => {
                                  //    message: 'Invalid email address'
                                  //    }
                                  // })}
+                              /> */}
+                              <Controller
+                                render={({ field: { onChange, onBlur, value } }) => (
+                                  // <IonInput onIonChange={onChange} />
+                                  <IonInput 
+                                      type="email"
+                                      onIonChange={onChange}
+                                      onBlur={onBlur}
+                                      value={value}
+                                      className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+                                      placeholder="" 
+                                    />
+                                )}
+                                control={control}
+                                name="email"
+                                rules={{
+                                  required: "This is a required field",
+                                  pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                    message: "invalid email address"
+                                  }
+                                }}
                               />
                               <ErrorMessage
                                  errors={errors}

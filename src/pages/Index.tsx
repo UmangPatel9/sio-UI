@@ -13,7 +13,7 @@ import {
 import { useHistory } from "react-router-dom";
 
 import { personCircleSharp, keySharp } from "ionicons/icons";
-import { FormProvider, useForm, FieldErrors } from "react-hook-form";
+import { FormProvider, useForm, FieldErrors, Controller } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 
 import '../assets/css/Custom.css';
@@ -23,8 +23,11 @@ import { Routes } from '../App';
 const Home: React.FC = () => {
   
     let history = useHistory();
+
     const methods = useForm({ mode: "onSubmit"});
-    const { register, handleSubmit, formState: { errors } } = methods;
+    const { register, handleSubmit, control, formState: { errors } } = methods;
+    // const { handleSubmit, control, errors } = useForm();
+    
   
     const onSubmit = (data: any) => { 
       console.log(data.email);
@@ -87,49 +90,63 @@ const Home: React.FC = () => {
                           </IonCol> */}
   
                           <IonCol size="12" className="email-field">
-                            {/* <IonInput placeholder="Email"/> */}
                             <IonLabel className="form-lable" >Mobile No. or Email address:</IonLabel>
                             <div className="input-with-icon">                              
                               <IonIcon icon={personCircleSharp} />
-                              <IonInput
-                                mode="md"
-                                type="email"
-                                className={`form-control ${errors.email ? 'is-invalid' : ''}`}
-                                placeholder=""
-                                // {...register('email', {
-                                //   required: 'Email is a required',
-                                //   pattern: {
-                                //   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                //   message: 'Invalid email address'
-                                //   }
-                                // })}
+                              <Controller
+                                render={({ field: { onChange, onBlur, value } }) => (
+                                  <IonInput 
+                                      type="email"
+                                      onIonChange={onChange}
+                                      onBlur={onBlur}
+                                      value={value}
+                                      className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+                                      placeholder="" 
+                                    />
+                                )}
+                                control={control}
+                                name="username"
+                                rules={{
+                                  required: "This is a required field",
+                                  pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                    message: "invalid email address"
+                                  }
+                                }}
                               />
                             </div>
                             <ErrorMessage
                               errors={errors}
-                              name="email"
+                              name="username"
                               as={<div className="error-message" style={{ color: 'red' }} />}
                             />
                           </IonCol>
   
                           <IonCol size="12" className="password-field">
-                            {/* <IonInput type="password" placeholder="Password" /> */}
                             <IonLabel className="form-lable" >Password:</IonLabel>
                             <div className="input-with-icon">                              
                               <IonIcon icon={keySharp} />
-                              <IonInput 
-                                mode="md"
-                                type="password"
-                                className={`form-control ${errors.password1 ? 'is-invalid' : ''}`} 
-                                placeholder=""
-                                // {...register('password1', {
-                                //   required: 'Password is required'
-                                // })}
+                              <Controller
+                                render={({ field: { onChange, onBlur, value } }) => (
+                                  <IonInput 
+                                      type="password"
+                                      onIonChange={onChange}
+                                      onBlur={onBlur}
+                                      value={value}
+                                      className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+                                      placeholder="" 
+                                    />
+                                )}
+                                control={control}
+                                name="password"
+                                rules={{
+                                  required: "Password is required"  
+                                }}
                               />
                             </div>
                             <ErrorMessage
                               errors={errors}
-                              name="password1"
+                              name="password"
                               as={<div className="error-message" style={{ color: 'red' }} />}
                             />
                           </IonCol>
@@ -148,7 +165,7 @@ const Home: React.FC = () => {
                                                    
                           <IonCol size="12" className="create-account-btn">
                             <IonLabel className="form-lable" >New to SIO?</IonLabel>
-                            <IonButton href="#" expand="block" fill="solid" >
+                            <IonButton routerLink={Routes.registration} expand="block" fill="solid" >
                               Create an Account
                             </IonButton>
                           </IonCol>

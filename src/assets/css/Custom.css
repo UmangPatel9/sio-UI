@@ -56,6 +56,7 @@ ion-app.ion-page {
 
 ion-content {
     --color: #000;
+    --background: #fff;
 }
 
 img {
@@ -454,7 +455,7 @@ body .button.button-clear.scroll-to-bottom-btn {
     z-index: 9;
     font-size: 25px;
 }
-body .login-form .native-input.sc-ion-input-md {
+body .input-with-icon .native-input.sc-ion-input-md {
     padding-left: 45px;
 }
 .login-form .password-field {
@@ -489,6 +490,7 @@ body .login-form .native-input.sc-ion-input-md {
 .form-lable {
     margin-bottom: 5px;
     display: block;
+    text-align: left;
 }
 .create-account-btn .form-lable {
     margin-bottom: 10px;
@@ -619,7 +621,8 @@ body .button.button-clear.abosolute-button-with-link {
 /* Select workspace page end  */
 
 /* Select project page start  */
-.select-project-header {
+.select-project-header ,
+.back-arrow {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
@@ -634,7 +637,8 @@ body .button.button-clear.abosolute-button-with-link {
 .project-title-wrap h6 {
     font-weight: 400;
 }
-.select-project-header ion-icon {
+.select-project-header ion-icon,
+.back-arrow ion-icon {
     font-size: 45px;
 }
 body .button.button-clear.edit-project-button {
@@ -707,6 +711,40 @@ body .button.button-clear.edit-project-button {
 }
 /* Signup page css end */
 
+/* Registration css start  */
+.back-arrow {
+    margin-bottom: 25px;
+}
+.back-arrow h4 {
+    margin-bottom: 0;
+}
+form .swiper-slide {
+    text-align: left;
+    font-size: 16px;
+}
+.swiper-pagination, 
+.swiper-container-horizontal>.swiper-pagination-bullets {
+    position: relative;
+    bottom: auto;
+    left: auto;
+}
+.ion-margin-auto {
+    margin: auto;
+}
+.form-footer-note p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #000;
+}
+.form-footer-note .button.button-clear {
+    font-size: 14px;
+    height: auto;
+    line-height: 1.2;
+    text-decoration: underline;
+    margin: -7px 0 0;
+}
+/* Registration css end  */
+
 /* 
 
 font-family: 'Open Sans', sans-serif;
@@ -715,6 +753,13 @@ regular: 400
 medium: 500
 semi-bold: 600
 bold: 700s
+
+body h1 { font-size: 36px; }
+body h2 { font-size: 30px; }
+body h3 { font-size: 24px; }
+body h4 { font-size: 20px; }
+body h5 { font-size: 18px; }
+body h6 { font-size: 16px; }
 
 color: #000000
 Blue color 1: #2E9BEE;
