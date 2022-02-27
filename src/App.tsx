@@ -8,6 +8,8 @@ import ResetPassword from './pages/Reset-Password';
 import SelectWorkspace from './pages/Select-Workspace';
 import SelectProject from './pages/Select-Project';
 import Registration from './pages/registration';
+import CreateNewWorkspace from './pages/Create-New-Workspace';
+import CreateProject from './pages/Create-Project';
 
 import Menu from './components/Menu';
 import Page from './pages/Page';
@@ -37,7 +39,9 @@ export const Routes = {
   resetPassword: '/reset-password',
   selectWorkspace: '/select-workspace',
   selectProject: '/select-project',
-  registration: '/registration'
+  registration: '/registration',
+  createNewWorkspace: '/create-new-workspace',
+  createProject: '/create-project'
 }
 
 setupIonicReact();
@@ -66,6 +70,12 @@ const App: React.FC = () => {
             </Route>
             <Route exact path={Routes.registration}>
               <Registration />
+            </Route>
+            <Route exact path={Routes.createNewWorkspace}>
+              <CreateNewWorkspace />
+            </Route>
+            <Route exact path={Routes.createProject}>
+              <CreateProject />
             </Route>
             <Route path="/page/:name" exact={true}>
               <Page />

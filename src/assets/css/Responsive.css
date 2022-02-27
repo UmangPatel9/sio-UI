@@ -59,6 +59,15 @@
     }
     /* Select workspace end */
 
+    /* Registration start  */
+    .slide-main.ion-padding {
+        padding: 0;
+    }
+    .login-form .forget-password .button.button-clear {
+        font-size: 14px;
+    }
+    /* Registration end  */
+
 }
 
 

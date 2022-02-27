@@ -215,7 +215,6 @@ body .button.button-clear {
 
 body .native-input.sc-ion-input-md,
 body ion-select,
-body ion-datetime,
 body ion-textarea,
 body .sc-ion-textarea-md-h {
     border: 2px solid #d1d1d1;
@@ -647,7 +646,7 @@ body .button.button-clear.edit-project-button {
 /* Select project page end  */
 
 
-/* Signup page css start */
+/* Registration css start  */
 .signup-form {
     flex-direction: column;
 }
@@ -665,23 +664,24 @@ body .button.button-clear.edit-project-button {
     margin-bottom: 15px;
 }
 .user-select-item {
-    --background: #F2F2F2;
-    --border-radius: 11px;
-    --background-hover: #FFFBF0;
+    --background: transparent;
+    --border-radius: 0;
+    --background-hover: transparent;
     --background-focused-opacity: 1;
-    --background-activated: #FFFBF0;
+    --background-activated: transparent;
     --background-activated-opacity: 1;
-    --background-focused: #FFFBF0;
-    --highlight-color-focused: #FFFBF0;
+    --background-focused: transparent;
+    --highlight-color-focused: transparent;
     --background-focused-opacity: 1;
-    --border-color: #7C7C7C;
-    --border-width: 1px;
+    --border-color: transparent;
+    --border-width: 0;
     --inner-border-width: 0;
-    --padding-start: 30px;
-    --padding-end: 30px;
-    --padding-top: 5px;
-    --padding-bottom: 5px;
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
     --inner-padding-end: 0;
+    --ripple-color: transparent;
 }
 .user-select-item + .user-select-item {
     margin-top: 15px;
@@ -690,7 +690,7 @@ body .button.button-clear.edit-project-button {
 .user-select-item:focus,
 .user-select-item.item-radio-checked,
 .user-select-item.ion-activated {
-    --background: #FEFBF2;
+    --background: transparent;
 }
 .user-select-item.item ion-label {
     color: #575757;
@@ -705,13 +705,23 @@ body .button.button-clear.edit-project-button {
     color: #575757;
 }
 .user-select-item ion-radio {
-    --color-checked: #FFBB00;
+    --color-checked: #424AB4;
     width: 30px;
     height: 30px;
+    margin-inline-start: 0;
+    margin-inline-end: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-/* Signup page css end */
-
-/* Registration css start  */
+:host(.radio-checked) .radio-icon {
+    background: #424AB4;
+}
+.error-message, 
+.error-summary {
+    color: red;
+    font-size: 14px;
+    margin: 2px 0 0;
+}
 .back-arrow {
     margin-bottom: 25px;
 }
@@ -743,7 +753,54 @@ form .swiper-slide {
     text-decoration: underline;
     margin: -7px 0 0;
 }
+.form-step-2 .form-footer-note p {
+    display: flex;
+    align-items: center;
+}
+.form-step-2 .form-footer-note .button.button-clear {
+    margin: auto 8px;
+}
+.form-footer-note ion-icon {
+    font-size: 25px;
+}
+.swiper-pagination-bullet {
+    background: #e6e6e6;
+}
+.swiper-pagination-bullet-active {
+    background: #2E9BEE;
+}
 /* Registration css end  */
+
+/* Create project start  */
+.form-sub-title {
+    margin: 20px 0 10px;
+}
+.form-sub-title ion-icon {
+    font-size: 30px;
+}
+.date-picker {
+    position: relative;
+}
+body .date-picker .button.button-clear {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    padding: 0 15px;
+}
+.date-picker ion-icon {
+    font-size: 20px;
+    color: #000;
+    margin-left: auto;
+}
+.form-lable h4 {
+    font-size: 20px;
+}
+/* Create project end  */
 
 /* 
 

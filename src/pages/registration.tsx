@@ -18,10 +18,13 @@ import { chevronBack, personCircleSharp, keySharp, phonePortraitSharp, mailSharp
 
 import { useHistory } from "react-router-dom";
 
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, Controller } from "react-hook-form";
 import { ErrorMessage } from '@hookform/error-message';
 
 import Header from '../components/Header';
+import RegistrationStep1 from '../components/RegistrationStep1';
+import RegistrationStep2 from '../components/RegistrationStep2';
+import RegistrationStep3 from '../components/RegistrationStep3';
 
 /* Optional CSS utils that can be commented out */
 import '@ionic/react/css/flex-utils.css';
@@ -49,9 +52,10 @@ const Registration: React.FC = () => {
    };
 
    const mySlides = useRef<any>(null);
+   const contentRef = useRef<HTMLIonContentElement | null>(null);
 
    const methods = useForm();
-   const { register, trigger, handleSubmit, getValues, setValue, formState: { errors } } = methods;
+   const { register, trigger, handleSubmit, getValues, setValue, control, formState: { errors } } = methods;
    // console.log(errors);
 
    useEffect(() => {
@@ -65,15 +69,18 @@ const Registration: React.FC = () => {
       await mySlides.current.lockSwipes(false);
       await mySlides.current.slideNext();
       await mySlides.current.lockSwipes(true);
+      contentRef.current && contentRef.current.scrollToTop(500);
    };
    const prev = async () => {
       await mySlides.current.lockSwipes(false);
       await mySlides.current.slidePrev();
       await mySlides.current.lockSwipes(true);
+      contentRef.current && contentRef.current.scrollToTop(500);
    };
     
    const onSubmit = (data: any) => {
       console.log(data);
+      history.push(Routes.createNewWorkspace);
    };
 
    
@@ -83,7 +90,7 @@ const Registration: React.FC = () => {
 
          <Header class="with-back-arrow with-step-arrow" onBack={prev} />
 
-         <IonContent fullscreen>
+         <IonContent ref={contentRef} scrollEvents={true} fullscreen>
             <IonGrid>
                <IonRow className="signup-form login-form-row">
                   <IonCol size="12" sizeMd="6" sizeLg="4">
@@ -91,223 +98,15 @@ const Registration: React.FC = () => {
                      <form onSubmit={handleSubmit(onSubmit)}>
                         <IonSlides pager={true} options={slideOpts} ref={mySlides}>
                            <IonSlide>
-                                 <IonGrid>
-                                    <div className="back-arrow">
-                                       <IonButton className="ion-text-right" fill="clear" routerLink="/">
-                                             <IonIcon icon={chevronBack} ></IonIcon>
-                                       </IonButton>
-                                       <h4>Back to Sign In</h4>
-                                    </div>
-                                    <h1>Registration with SIO</h1>
-                                    <IonRow>
-                                       <IonCol size="12" className="email-field">
-                                          <IonLabel className="form-lable">First Name*</IonLabel>
-                                          <div className="input-with-icon">                              
-                                             <IonIcon icon={personCircleSharp} />
-                                             <IonInput
-                                                mode="md"
-                                                type="email"
-                                                placeholder="Add text"
-                                                // {...register('email', {
-                                                //    required: 'Please enter a valid email.',
-                                                //    pattern: {
-                                                //       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                                //       message: 'Please enter a valid email.'
-                                                //    }
-                                                // })}
-                                             />
-                                          </div>
-                                          <ErrorMessage
-                                             errors={errors}
-                                             name="email"
-                                             as={<div className="error-message" style={{ color: 'red' }} />}
-                                          />
-                                       </IonCol>
-
-                                       <IonCol size="12" className="password-field">
-                                          <IonLabel className="form-lable">Last Name*</IonLabel>
-                                          <div className="input-with-icon">                              
-                                             <IonIcon icon={personCircleSharp} />
-                                             <IonInput 
-                                                mode="md"
-                                                type="password"
-                                                placeholder="Add text" 
-                                                // {...register('password1', {
-                                                //    required: 'The password must match the following criteria: Minimum 8 characters, Include at least 1 letter, Include at least 1 number and maximum 12 characters long.',
-                                                //    pattern: {
-                                                //      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/i,
-                                                //      message: 'The password must match the following criteria: Minimum 8 characters, Include at least 1 letter, Include at least 1 number and maximum 12 characters long.'
-                                                //    }
-                                                // })}
-                                             />
-                                          </div>
-                                          <ErrorMessage
-                                             errors={errors}
-                                             name="password1"
-                                             as={<div className="error-message" style={{ color: 'red' }} />}
-                                          />
-                                       </IonCol>
-
-                                       <IonCol size="12" className="forget-password">
-                                          <IonLabel className="form-lable">Mobile No.*</IonLabel>
-                                          <div className="input-with-icon">                              
-                                             <IonIcon icon={phonePortraitSharp} />
-                                             <IonInput 
-                                                mode="md"
-                                                type="password"
-                                                placeholder="Add text" 
-                                                // {...register('password2', {
-                                                //    // required: true,
-                                                //    validate: {
-                                                //       noMatch: (value: string) => {
-                                                //          return value !== getValues("password1")
-                                                //             ? "The passwords do not match."
-                                                //             : undefined;
-                                                //       },
-                                                //    },
-                                                // })}
-                                             />
-                                          </div>
-                                          <ErrorMessage
-                                             errors={errors}
-                                             name="password2"
-                                             as={<div className="error-message" style={{ color: 'red' }} />}
-                                          />
-                                       </IonCol>
-
-                                       <IonCol size="12" className="email-field">
-                                          <IonLabel className="form-lable">Emial*</IonLabel>
-                                          <div className="input-with-icon">                              
-                                             <IonIcon icon={mailSharp} />
-                                             <IonInput
-                                                mode="md"
-                                                type="email"
-                                                placeholder="Add text"
-                                                // {...register('email', {
-                                                //    required: 'Please enter a valid email.',
-                                                //    pattern: {
-                                                //       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                                //       message: 'Please enter a valid email.'
-                                                //    }
-                                                // })}
-                                             />
-                                          </div>
-                                          <ErrorMessage
-                                             errors={errors}
-                                             name="email"
-                                             as={<div className="error-message" style={{ color: 'red' }} />}
-                                          />
-                                       </IonCol>
-
-                                       <IonCol size="12" className="password-field">
-                                          <IonLabel className="form-lable">Password*</IonLabel>
-                                          <div className="input-with-icon">                              
-                                             <IonIcon icon={keySharp} />
-                                             <IonInput 
-                                                mode="md"
-                                                type="password"
-                                                placeholder="Add text" 
-                                                // {...register('password1', {
-                                                //    required: 'The password must match the following criteria: Minimum 8 characters, Include at least 1 letter, Include at least 1 number and maximum 12 characters long.',
-                                                //    pattern: {
-                                                //      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/i,
-                                                //      message: 'The password must match the following criteria: Minimum 8 characters, Include at least 1 letter, Include at least 1 number and maximum 12 characters long.'
-                                                //    }
-                                                // })}
-                                             />
-                                          </div>
-                                          <ErrorMessage
-                                             errors={errors}
-                                             name="password1"
-                                             as={<div className="error-message" style={{ color: 'red' }} />}
-                                          />
-                                       </IonCol>
-
-                                       <IonCol size="8" className="sign-up-btn ion-align-self-center ion-margin-auto">
-                                          <IonButton expand="block" shape="round" fill="outline" onClick={() => next(['email','password1', 'password2'])}>
-                                             Continue
-                                          </IonButton>
-                                       </IonCol>
-
-                                       <IonCol size="12" className="form-footer-note">
-                                          <p>by continuing, <br/>
-                                          you are agreeing to our <IonButton className="ion-text-right" fill="clear" routerLink="/">Privacy & Terms</IonButton></p>
-                                       </IonCol>
-
-                                    </IonRow>
-                                 </IonGrid>
+                                 <RegistrationStep1 next={next} />
                            </IonSlide>
 
                            <IonSlide>
-                                 <IonGrid>
-                                    <IonRow>
+                                 <RegistrationStep2 next={next} prev={prev} />
+                           </IonSlide>
 
-                                       <IonCol size="12" className="email-field">
-                                          <IonLabel className="form-lable">First Name*</IonLabel>
-                                          <IonInput
-                                             mode="md"
-                                             type="text"   
-                                             // {...register('firstName', {
-                                             //    required: 'This info is mandatory. Please fill it.'
-                                             // })}
-                                          />
-                                          <ErrorMessage
-                                             errors={errors}
-                                             name="firstName"
-                                             as={<div className="error-message" style={{ color: 'red' }} />}
-                                          />
-                                       </IonCol>
-
-                                       <IonCol size="12" className="email-field">
-                                          <IonLabel className="form-lable">Last Name*</IonLabel>
-                                          <IonInput
-                                             mode="md"
-                                             type="text" 
-                                             // {...register('lastName', {
-                                             //    required: 'This info is mandatory. Please fill it.'
-                                             // })}
-                                          />
-                                          <ErrorMessage
-                                             errors={errors}
-                                             name="lastName"
-                                             as={<div className="error-message" style={{ color: 'red' }} />}
-                                          />
-                                       </IonCol>
-
-                                       <IonCol size="12" className="email-field">
-                                          <div className="label-with-tooltip">
-                                             <IonLabel className="form-lable">Telephone:</IonLabel>
-                                             <div className="tooltip" title="Add Telephone">!</div>
-                                          </div>
-                                          <IonInput
-                                             mode="md"
-                                             type="number" 
-                                             // {...register('telephone', {
-                                             //    minLength: 6, maxLength: 12,
-                                             // })}
-                                          />
-                                          <ErrorMessage
-                                             errors={errors}
-                                             name="telephone"
-                                             as={<div className="error-message" style={{ color: 'red' }} />}
-                                          />
-                                       </IonCol>
-
-                                    
-                                       {/* <IonCol size="12" className="sign-up-btn">
-                                          <IonButton expand="block" shape="round" fill="outline" onClick={() => prev()}>
-                                             previous
-                                          </IonButton>
-                                       </IonCol> */}
-
-                                       <IonCol size="12" className="sign-up-btn">
-                                          <IonButton className="secondary-button" type="submit" expand="block" shape="round" fill="outline">
-                                             Finalize
-                                          </IonButton>
-                                       </IonCol>
-
-                                    </IonRow>
-                                 </IonGrid>
+                           <IonSlide>
+                                 <RegistrationStep3 prev={prev} />
                            </IonSlide>
 
                         </IonSlides>
