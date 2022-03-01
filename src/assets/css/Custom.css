@@ -774,9 +774,13 @@ form .swiper-slide {
 /* Create project start  */
 .form-sub-title {
     margin: 20px 0 10px;
+    display: flex;
+    align-items: flex-end;
+    font-weight: 700;
 }
 .form-sub-title ion-icon {
     font-size: 30px;
+    margin-left: 5px;
 }
 .date-picker {
     position: relative;
@@ -800,6 +804,25 @@ body .date-picker .button.button-clear {
 .form-lable h4 {
     font-size: 20px;
 }
+.building-info ion-icon.md {
+    font-size: 30px;
+}
+.add-more-building-info {
+    margin-top: 10px;
+}
+.add-more-building-info .button.button-solid.secondary-button {
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    --padding-start: 30px;
+    --padding-end: 30px;
+}
+.building-info .button.button-clear {
+    height: 48px;
+    margin-top: 25px;
+}
+.form-sub-title + .building-info .button.button-clear {
+    display: none;
+}
 /* Create project end  */
 
 /* 
@@ -809,7 +832,7 @@ light: 300
 regular: 400
 medium: 500
 semi-bold: 600
-bold: 700s
+bold: 700
 
 body h1 { font-size: 36px; }
 body h2 { font-size: 30px; }

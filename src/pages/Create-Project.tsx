@@ -17,19 +17,22 @@ import {
     IonPopover,
     IonButtons,
     IonSelect,
-    IonSelectOption  
+    IonSelectOption,
+    IonAlert  
   } from '@ionic/react';
   
-  import { chevronBack, createOutline, locationSharp, calendar } from 'ionicons/icons';
+  import { chevronBack, createOutline, locationSharp, calendar, removeCircleSharp, addCircleSharp } from 'ionicons/icons';
 
   import { FormProvider, useForm, Controller } from "react-hook-form";
   import { ErrorMessage } from '@hookform/error-message';
   import { format, parseISO } from 'date-fns';
   
   // import Header from '../components/Header';
-  
-  import '../assets/css/Custom.css';
+  import '@ionic/react/css/text-transformation.css';
+    import '@ionic/react/css/flex-utils.css';
+    import '../assets/css/Custom.css';
   import '../assets/css/Responsive.css';
+  
   
   const CreateProject: React.FC = () => {
   
@@ -69,8 +72,147 @@ import {
     const doNothing = () => {
 
     }
+
+    const defaultList = [
+        { building: "", wing: "", flatNumber: "" }
+    ];
+
+    const [inputList, setInputList] = useState(defaultList);
+    const [removeBuildingInfo, setRemoveBuildingInfo] = useState(false);
+
+    // handle click event of the Remove button
+    const handleRemoveClick = (index:any) => {
+        const list = [...inputList];
+        list.splice(index, 1);
+        setInputList(list);
+    };
+    
+    // handle click event of the Add button
+    const handleAddClick = () => {
+        setInputList([...inputList, { building: "", wing: "", flatNumber: "" }]);
+    };
+
+    const renderList = () => {
+        return inputList.map((x, i) => {
+            return (
+                <div key={i} className="building-info">
+                    <IonRow>
+                        <IonCol size="4">
+                            <IonLabel className="form-lable">Building</IonLabel>
+                            {/* <IonInput mode="md" type="text" value={x.building} name="building"></IonInput> */}
+                            <Controller
+                                render={({ field: { onChange, onBlur, value } }) => (
+                                    <IonInput 
+                                        type="text"
+                                        onIonChange={onChange}
+                                        onBlur={onBlur}
+                                        className={`form-control ${errors.buiding ? 'is-invalid' : ''}`}
+                                        placeholder="" 
+                                        value={x.building}
+                                    />
+                                )}
+                                control={control}
+                                name="buiding"
+                                rules={{
+                                    required: "Please enter buiding number."  
+                                }}
+                            />
+                            <ErrorMessage
+                                errors={errors}
+                                name="buiding"
+                                as={<div className="error-message" style={{ color: 'red' }} />}
+                            />
+                        </IonCol>
+                        <IonCol size="4">
+                            <IonLabel className="form-lable">Wing</IonLabel>
+                            {/* <IonInput mode="md" type="text" value={x.wing} name="wing"></IonInput> */}
+                            <Controller
+                                render={({ field: { onChange, onBlur, value } }) => (
+                                    <IonInput 
+                                        type="text"
+                                        onIonChange={onChange}
+                                        onBlur={onBlur}
+                                        className={`form-control ${errors.wing ? 'is-invalid' : ''}`}
+                                        placeholder="" 
+                                        value={x.building}
+                                    />
+                                )}
+                                control={control}
+                                name="wing"
+                                rules={{
+                                    required: "Please enter wing number."  
+                                }}
+                            />
+                            <ErrorMessage
+                                errors={errors}
+                                name="wing"
+                                as={<div className="error-message" style={{ color: 'red' }} />}
+                            />
+                        </IonCol>
+                        <IonCol size="3">
+                            <IonLabel className="form-lable">Flat No</IonLabel>
+                            {/* <IonInput mode="md" type="text" value={x.flatNumber} name="flatNumber"></IonInput> */}
+                            <Controller
+                                render={({ field: { onChange, onBlur, value } }) => (
+                                    <IonInput 
+                                        type="text"
+                                        onIonChange={onChange}
+                                        onBlur={onBlur}
+                                        className={`form-control ${errors.flat ? 'is-invalid' : ''}`}
+                                        placeholder="" 
+                                        value={x.building}
+                                    />
+                                )}
+                                control={control}
+                                name="flat"
+                                rules={{
+                                    required: "Please enter flat number."  
+                                }}
+                            />
+                            <ErrorMessage
+                                errors={errors}
+                                name="flat"
+                                as={<div className="error-message" style={{ color: 'red' }} />}
+                            />
+                        </IonCol>
+                        <IonCol size="1">
+                            <IonButton fill="clear" onClick={() => setRemoveBuildingInfo(true)}><IonIcon icon={removeCircleSharp} /></IonButton>
+                        </IonCol>
+                    </IonRow>
+                    <IonAlert
+                        isOpen={removeBuildingInfo}
+                        onDidDismiss={() => setRemoveBuildingInfo(false)}
+                        cssClass='red-alert'
+                        mode='md'
+                        header={'Remove Tenant'}
+                        message={'<p>Are you sure you want to remove this building info?</p>'}
+                        buttons={[
+                            {
+                                text: 'Yes',
+                                cssClass: 'btn-secondary',
+                                handler: () => {
+                                    handleRemoveClick(i);
+                                    console.log('Exit File Okay');
+                                }
+                            },
+                            {
+                                text: 'No',
+                                role: 'cancel',
+                                cssClass: 'btn-outline',
+                                handler: () => {
+                                    console.log('Exit File Cancel');
+                                }
+                            }
+                            
+                        ]}
+                    />
+                </div>
+                
+            );
+        })
+    }
   
-     return (
+    return (
         <IonPage>
   
            {/* <Header class="with-back-arrow"  onBack={doNothing}/> */}
@@ -232,10 +374,24 @@ import {
                                             as={<div className="error-message" style={{ color: 'red' }} />}
                                         /> */}
                                     </IonCol>
+
+                                    <IonCol size="12" className="ion-margin-top">
+                                        <h3 className="form-sub-title">
+                                            Building info
+                                            <IonIcon slot="icon-only" src="/assets/images/city.svg" ></IonIcon>
+                                        </h3>
+                                        {renderList()}
+                                        <div className="add-more-building-info ion-text-center">
+                                            <IonButton className="secondary-button" fill="solid" onClick={handleAddClick}>
+                                                <IonIcon icon={addCircleSharp} />
+                                                <span className="">Add More</span>
+                                            </IonButton>
+                                        </div>
+                                    </IonCol>
   
                                    <IonCol size="12" className="ion-margin-top">
                                       <IonButton className="secondary-button" type="submit" expand="block" fill="solid" >
-                                        Create Workspace
+                                        Create Project
                                       </IonButton>
                                    </IonCol>
                                 </IonRow>

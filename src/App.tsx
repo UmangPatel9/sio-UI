@@ -10,6 +10,7 @@ import SelectProject from './pages/Select-Project';
 import Registration from './pages/registration';
 import CreateNewWorkspace from './pages/Create-New-Workspace';
 import CreateProject from './pages/Create-Project';
+import Dashboard from './pages/Dashboard';
 
 import Menu from './components/Menu';
 import Page from './pages/Page';
@@ -41,7 +42,8 @@ export const Routes = {
   selectProject: '/select-project',
   registration: '/registration',
   createNewWorkspace: '/create-new-workspace',
-  createProject: '/create-project'
+  createProject: '/create-project',
+  dashboard: '/dashboard'
 }
 
 setupIonicReact();
@@ -76,6 +78,9 @@ const App: React.FC = () => {
             </Route>
             <Route exact path={Routes.createProject}>
               <CreateProject />
+            </Route>
+            <Route exact path={Routes.dashboard}>
+              <Dashboard />
             </Route>
             <Route path="/page/:name" exact={true}>
               <Page />
