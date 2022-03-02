@@ -68,6 +68,15 @@
     }
     /* Registration end  */
 
+    /* Dahsboard start  */
+    body .dashboar-buttons .button.button-outline:hover h6,
+    body .dashboar-buttons .button.button-outline:focus h6,
+    body .dashboar-buttons .button.button-outline:hover ion-icon,
+    body .dashboar-buttons .button.button-outline:focus  ion-icon {
+        color: #000;
+    }
+    /* Dahsboard end */
+
 }
 
 

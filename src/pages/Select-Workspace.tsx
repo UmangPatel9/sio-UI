@@ -43,7 +43,7 @@ const SelectWorkspace: React.FC = () => {
                     <IonCardHeader>
                         <h6>Workspace for 9898098980</h6>
                         <IonButton className="edit-workspace-button ion-text-right" fill="clear">
-                            <IonIcon icon={createOutline} ></IonIcon>
+                            <IonIcon  icon="/assets/images/edit-icon.svg" ></IonIcon>
                         </IonButton>
                     </IonCardHeader>
 

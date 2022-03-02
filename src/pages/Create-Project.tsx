@@ -23,6 +23,8 @@ import {
   
   import { chevronBack, createOutline, locationSharp, calendar, removeCircleSharp, addCircleSharp } from 'ionicons/icons';
 
+  import Header from "../components/Header";
+
   import { FormProvider, useForm, Controller } from "react-hook-form";
   import { ErrorMessage } from '@hookform/error-message';
   import { format, parseISO } from 'date-fns';
@@ -215,7 +217,7 @@ import {
     return (
         <IonPage>
   
-           {/* <Header class="with-back-arrow"  onBack={doNothing}/> */}
+           <Header class="with-back-arrow"  onBack={doNothing}/>
   
            <IonContent fullscreen>
               <IonGrid className="full-height-div">
@@ -230,7 +232,7 @@ import {
                                 <h3><b>ABC Builder Group</b></h3>
                             </div>
                             <IonButton className="edit-project-button ion-text-right" fill="clear">
-                                <IonIcon icon={createOutline} ></IonIcon>
+                                <IonIcon  icon="/assets/images/edit-icon.svg" ></IonIcon>
                             </IonButton>
                         </div>
                        <FormProvider {...methods}>

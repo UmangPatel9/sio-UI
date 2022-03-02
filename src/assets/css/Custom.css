@@ -121,15 +121,7 @@ input[type=number] {
 body .button.button-block,
 body .button.button-full,
 body .button.button-solid,
-body .button.button-outline {
-    --color: #fff;
-    --color-focused: #fff;
-    --color-hover: #fff;
-    --border-color: #2E9BEE;
-    --background: #2E9BEE;
-    --background-focused: #414BB2;
-    --background-hover: #414BB2;
-    --background-activated: #414BB2;
+body .button.button-outline { 
     --background-focused-opacity: 1;
     --background-hover-opacity: 1;
     --background-activated-opacity: 1;
@@ -145,6 +137,29 @@ body .button.button-outline {
     --padding-end: 50px;
     --padding-top: 20px;
     --padding-bottom: 20px;
+}
+body .button.button-block,
+body .button.button-full,
+body .button.button-solid {
+    --color: #fff;
+    --color-focused: #fff;
+    --color-hover: #fff;
+    --border-color: #2E9BEE;
+    --background: #2E9BEE;
+    --background-focused: #414BB2;
+    --background-hover: #414BB2;
+    --background-activated: #414BB2;
+}
+body .button.button-outline { 
+    --color: #000;
+    --color-focused: #fff;
+    --color-hover: #fff;
+    --border-color: #000;
+    --background: #fff;
+    --background-focused: #414BB2;
+    --background-hover: #414BB2;
+    --background-activated: #414BB2;
+    --ripple-color: #414BB2;
 }
 body .button.button-block.secondary-button,
 body .button.button-round.secondary-button,
@@ -181,7 +196,7 @@ body .button.button-block.button-solid.secondary-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* flex-wrap: wrap; */
+    flex-direction: column;
 }
 body .button.button-clear {
     font-size: 16px;
@@ -212,7 +227,6 @@ body .button.button-clear {
 /* Button css end */
 
 /* Form field css start */
-
 body .native-input.sc-ion-input-md,
 body ion-select,
 body ion-textarea,
@@ -436,10 +450,13 @@ body .button.button-clear.scroll-to-bottom-btn {
     text-align: center;
     font-weight: 400;
 }
-.login-form-row {
+.login-form-row,
+.main-row {
     justify-content: center;
     padding: 5vw 0;
     height: 100%;
+}
+.login-form-row {
     align-items: center;
 }
 .input-with-icon {
@@ -725,6 +742,8 @@ body .button.button-clear.edit-project-button {
 .back-arrow {
     margin-bottom: 25px;
 }
+.back-arrow h2,
+.back-arrow h3,
 .back-arrow h4 {
     margin-bottom: 0;
 }
@@ -824,6 +843,59 @@ body .date-picker .button.button-clear {
     display: none;
 }
 /* Create project end  */
+
+/* Dashboard start  */
+.main-title-with-icons-on-right {
+    width: 100%;
+}
+.buttons-wrap ion-icon {
+    font-size: 32px;
+}
+body .buttons-wrap .button + .button {
+    margin-left: 10px;
+}
+body .dashboar-buttons .button.button-outline {
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+    --padding-start: 15px;
+    --padding-end: 15px;
+    margin: 0;
+    --border-radius: 0;
+    --border-width: 2px;
+}
+body .dashboar-buttons ion-icon {
+    font-size: 65px;
+}
+.dashboar-buttons h6 {
+    margin: 10px 0 0;
+    font-weight: 700;
+}
+body .dashboar-buttons .button.button-outline:hover h6,
+body .dashboar-buttons .button.button-outline:focus h6,
+body .dashboar-buttons .button.button-outline:hover ion-icon,
+body .dashboar-buttons .button.button-outline:focus  ion-icon {
+    color: #fff;
+}
+.dashboar-buttons {
+    margin: 0 -15px;
+}
+.dashboar-buttons ion-col {
+    padding: 15px;
+}
+/* Dashboard end  */
+
+/* My Accout page start  */
+.my-account-header {
+    margin-bottom: 120px;
+}
+/* My Accout page end  */
+
+/* Users start  */
+.invite-user-button ion-icon {
+    font-size: 40px;
+    margin-right: 10px;
+}
+/* Users end  */
 
 /* 
 

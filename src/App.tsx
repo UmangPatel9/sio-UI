@@ -11,6 +11,9 @@ import Registration from './pages/registration';
 import CreateNewWorkspace from './pages/Create-New-Workspace';
 import CreateProject from './pages/Create-Project';
 import Dashboard from './pages/Dashboard';
+import MyAccount from './pages/My-Account';
+import MyProfile from './pages/My-Profile';
+import Users from './pages/Users';
 
 import Menu from './components/Menu';
 import Page from './pages/Page';
@@ -43,7 +46,10 @@ export const Routes = {
   registration: '/registration',
   createNewWorkspace: '/create-new-workspace',
   createProject: '/create-project',
-  dashboard: '/dashboard'
+  dashboard: '/dashboard',
+  myAccount: '/my-account',
+  myProfile: '/my-profile',
+  users: '/users'
 }
 
 setupIonicReact();
@@ -81,6 +87,15 @@ const App: React.FC = () => {
             </Route>
             <Route exact path={Routes.dashboard}>
               <Dashboard />
+            </Route>
+            <Route exact path={Routes.myAccount}>
+              <MyAccount />
+            </Route>
+            <Route exact path={Routes.myProfile}>
+              <MyProfile />
+            </Route>
+            <Route exact path={Routes.users}>
+              <Users />
             </Route>
             <Route path="/page/:name" exact={true}>
               <Page />

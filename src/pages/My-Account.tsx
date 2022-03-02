@@ -15,7 +15,7 @@ import {
   } from '@ionic/react';
   
   import { chevronBack, createOutline } from 'ionicons/icons';
-
+  
   import Header from "../components/Header";
   
   // import Header from '../components/Header';
@@ -26,7 +26,7 @@ import {
   import { Routes } from '../App';
   
   
-  const Dashboard: React.FC = () => {
+  const MyAccount: React.FC = () => {
 
     let history = useHistory();
 
@@ -52,64 +52,45 @@ import {
                 <IonRow className="main-row">
                     <IonCol size="12" sizeMd="6" sizeLg="4">
 
-                        <div className="select-project-header">
+                        <div className="select-project-header my-account-header">
                             <IonButton className="ion-text-right" fill="clear" onClick={pageBack}>
                                 <IonIcon icon={chevronBack} ></IonIcon>
                             </IonButton>
                             <div className="project-title-wrap">
-                                <h3><b>Dashboard</b></h3>
+                                <h3><b>My Account</b></h3>
                             </div>
-                        </div>
-
-                        <IonRow className="main-title-with-icons-on-right ion-align-items-end">
-                            <IonCol size="9" sizeMd="9"  sizeLg="9" className="title-wrap ion-no-padding">
-                                <h4 className="ion-no-margin">Project</h4>
-                            </IonCol>
-                            <IonCol size="3" sizeMd="3"  sizeLg="3" className="buttons-wrap ion-text-end ion-no-padding">
-                                <IonButton fill="clear">
-                                    <IonIcon icon="assets/images/arrow-down-icon.svg" ></IonIcon>
-                                </IonButton>
-                                <IonButton fill="clear">
-                                    <IonIcon icon="/assets/images/edit-icon.svg" ></IonIcon>
-                                </IonButton>
-                            </IonCol>
-                        </IonRow>
-
-                        <div className="project-name">
-                            <h3 className="ion-no-margin"><b>Happy Homes</b></h3>
-                            <h6 className="project-date">Jan 01, 2021</h6>
                         </div>
 
                         <IonRow className="dashboar-buttons">
                             <IonCol size="6" sizeMd="6" sizeLg="6">
-                                <IonButton expand="block" fill="outline" routerLink={Routes.myAccount}>
+                                <IonButton expand="block" fill="outline" routerLink={Routes.myProfile}>
                                     <div className="button-inner">
-                                        <IonIcon slot="icon-only" src="/assets/images/my-account-icon.svg" />
-                                        <h6 className="">My Account</h6>
+                                        <IonIcon slot="icon-only" src="/assets/images/my-profile-icon.svg" />
+                                        <h6 className="">My Profile</h6>
+                                    </div>
+                                </IonButton>
+                            </IonCol>
+                            <IonCol size="6" sizeMd="6" sizeLg="6">
+                                <IonButton expand="block" fill="outline" routerLink={Routes.users}>
+                                    <div className="button-inner">
+                                        <IonIcon slot="icon-only" src="/assets/images/users-icon.svg" />
+                                        <h6 className="">Users</h6>
                                     </div>
                                 </IonButton>
                             </IonCol>
                             <IonCol size="6" sizeMd="6" sizeLg="6">
                                 <IonButton expand="block" fill="outline" routerLink={Routes.myAccount}>
                                     <div className="button-inner">
-                                        <IonIcon slot="icon-only" src="/assets/images/stock-icon.svg" />
-                                        <h6 className="">Stock</h6>
+                                        <IonIcon slot="icon-only" src="/assets/images/billing-icon.svg" />
+                                        <h6 className="">Billing</h6>
                                     </div>
                                 </IonButton>
                             </IonCol>
                             <IonCol size="6" sizeMd="6" sizeLg="6">
                                 <IonButton expand="block" fill="outline" routerLink={Routes.myAccount}>
                                     <div className="button-inner">
-                                        <IonIcon slot="icon-only" src="/assets/images/inward-icon.svg" />
-                                        <h6 className="">Inward</h6>
-                                    </div>
-                                </IonButton>
-                            </IonCol>
-                            <IonCol size="6" sizeMd="6" sizeLg="6">
-                                <IonButton expand="block" fill="outline" routerLink={Routes.myAccount}>
-                                    <div className="button-inner">
-                                        <IonIcon slot="icon-only" src="/assets/images/outward-icon.svg" />
-                                        <h6 className="">Outward</h6>
+                                        <IonIcon slot="icon-only" src="/assets/images/logout-icon.svg" />
+                                        <h6 className="">Logout</h6>
                                     </div>
                                 </IonButton>
                             </IonCol>
@@ -125,4 +106,4 @@ import {
     );
   };
   
-  export default Dashboard;
+  export default MyAccount;
