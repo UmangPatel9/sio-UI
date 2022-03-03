@@ -268,11 +268,11 @@ body .sc-ion-textarea-md-h.is-invalid {
 body ion-datetime {
     align-items: center;
 }
+.input-with-icon.read-only-input {
+    opacity: 0.5;
+}
 body .native-input.sc-ion-input-md[readonly] {
-    border-color: transparent;
-    background-color: #e5e5e5;
-    font-size: 25px;
-    color: #7c7c7c;
+    background-color: #f8f8f8;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #7C7C7C;
@@ -895,7 +895,89 @@ body .dashboar-buttons .button.button-outline:focus  ion-icon {
     font-size: 40px;
     margin-right: 10px;
 }
+body .button.button-clear.invite-user-button:hover h5, 
+body .button.button-clear.invite-user-button:focus h5 {
+    color: #2B89E0;
+}
+.table {
+    border: 1px solid #808080;
+    padding: 0;
+    border-top: none;
+    margin-top: 15px;
+}
+.table-row {
+    border-top: 1px solid #808080;
+}
+.table-row ion-col {
+    padding: 15px 10px;
+}
+.table-header h6 {
+    font-weight: 700;
+}
+.table-row p {
+    margin: 0;
+}
+.user-name {
+    font-weight: 700;
+}
+.user-name.active-user {
+    color: #8FD14F;
+}
+.user-number.active-user-number {
+    color: #000;
+}
+.user-name,
+.user-number,
+.user-type {
+    color: #808080;
+}
 /* Users end  */
+
+/* Edit User start  */
+.user-name-display {
+    display: flex;
+    margin: 40px 0 30px;
+}
+.user-name-display h3 {
+    margin: 0;
+}
+.user-name-display h3 + h3 {
+    margin-left: 10px;
+}
+.checkbox-wrap {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    display: inline-block;
+    align-items: center;
+    margin-top: 15px;
+    --inner-border-width: 0;
+    --min-height: auto;
+    --background: transparent;
+    --background-activated: transparent;
+    --background-focused: transparent;
+    --background-hover: transparent;
+    --ripple-color: transparent;
+    --padding-start: 0;
+    --padding-end: 0;
+    --inner-padding-start: 0;
+    --inner-padding-end: 0;
+}
+.checkbox-wrap ion-checkbox {
+    margin: 0;
+    --border-color: #d1d1d1;
+    --border-color-checked: #414BB2;
+    --background-checked: #414BB2;
+    --checkmark-color: #fff;
+}
+.checkbox-wrap .form-lable {
+    margin: 0 0 0 10px;
+    font-size: 16px;
+    color: #000;
+    position: relative;
+    top: 1px;
+}
+/* Edit User end  */
 
 /* 
 

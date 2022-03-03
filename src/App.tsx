@@ -14,6 +14,8 @@ import Dashboard from './pages/Dashboard';
 import MyAccount from './pages/My-Account';
 import MyProfile from './pages/My-Profile';
 import Users from './pages/Users';
+import InviteUser from './pages/Invite-User';
+import EditUser from './pages/Edit-User';
 
 import Menu from './components/Menu';
 import Page from './pages/Page';
@@ -49,7 +51,9 @@ export const Routes = {
   dashboard: '/dashboard',
   myAccount: '/my-account',
   myProfile: '/my-profile',
-  users: '/users'
+  users: '/users',
+  inviteUser: '/invite-user',
+  editUser: '/edit-user'
 }
 
 setupIonicReact();
@@ -96,6 +100,12 @@ const App: React.FC = () => {
             </Route>
             <Route exact path={Routes.users}>
               <Users />
+            </Route>
+            <Route exact path={Routes.inviteUser}>
+              <InviteUser />
+            </Route>
+            <Route exact path={Routes.editUser}>
+              <EditUser />
             </Route>
             <Route path="/page/:name" exact={true}>
               <Page />
