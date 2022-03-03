@@ -62,7 +62,7 @@ import {
             <IonCol size="12" sizeMd="6" sizeLg="4">
 
                 <div className="back-arrow">
-                    <IonButton className="ion-text-right" fill="clear" routerLink="/">
+                    <IonButton className="ion-text-right" fill="clear" onClick={pageBack}>
                             <IonIcon icon={chevronBack} ></IonIcon>
                     </IonButton>
                     <h3>My Profile</h3>
