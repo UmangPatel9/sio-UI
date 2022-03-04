@@ -188,6 +188,10 @@ body .button.button-block.button-solid.secondary-button {
     --background-focused: #414BB2;
     --background-hover: #414BB2;
 }
+body .button.yellow-button.button-solid {
+    --background: #FAC710;
+    --border-color: #FAC710;
+}
 .button-solid ion-icon {
     font-size: 35px;
     margin-right: 10px;
@@ -481,7 +485,8 @@ body .input-with-icon .native-input.sc-ion-input-md {
     margin-top: 0;
     align-self: flex-end;
 }
-.login-form .forget-password .button.button-clear {
+.login-form .forget-password .button.button-clear,
+body .buy-plan-footer .button.button-clear.clear-button-with-border {
     letter-spacing: normal;
     margin: 0;
     line-height: 1.2;
@@ -497,7 +502,9 @@ body .input-with-icon .native-input.sc-ion-input-md {
     margin: 0;
 }
 .login-form .forget-password .button.button-clear:hover,
-.login-form .forget-password .button.button-clear:focus {
+.login-form .forget-password .button.button-clear:focus,
+body .buy-plan-footer .button.button-clear.clear-button-with-border:hover,
+body .buy-plan-footer .button.button-clear.clear-button-with-border:focus {
     border-bottom-color: #2E9BEE;
 }
 .login-form .create-account-btn {
@@ -581,8 +588,8 @@ body ion-item ion-icon {
 }
 body ion-item:hover ion-icon,
 body ion-item:hover ion-label,
-body ion-item :focus ion-icon,
-body ion-item :focus ion-label {
+body ion-item:focus ion-icon,
+body ion-item:focus ion-label {
     color: #2B89E0;
 }
 body ion-card-header .button.button-clear {
@@ -978,6 +985,93 @@ body .button.button-clear.invite-user-button:focus h5 {
     top: 1px;
 }
 /* Edit User end  */
+
+/* Billing start  */
+.project-number {
+    font-weight: 400;
+}
+.table-footer-note {
+    margin: 40px 0 0;
+}
+.table-title {
+    margin: 40px 0 10px;
+}
+/* Billing end  */
+
+/* Buy Plan start  */
+.table-row ion-icon {
+    font-size: 35px;
+}
+.subsciption-note {
+    border: 1px solid #808080;
+    color: #808080;
+    padding: 12px;
+    margin: 70px 0;
+    font-size: 14px;
+}
+.subsciption-note p {
+    margin: 0;
+    line-height: 1.4;
+}
+.buy-plan-footer {
+    text-align: center;
+}
+.buy-plan-footer .main-logo {
+    max-width: 40px;
+    margin: 0 auto 15px;
+}
+body .buy-plan-footer .button.button-clear.clear-button-with-border {
+    font-size: 16px;
+}
+.buy-plan-footer p {
+    font-size: 14px;
+    margin: 20px 0 0;
+}
+/* Buy Plan end  */
+
+/* Inward start  */
+.category-name {
+    padding-top: 15px;
+    border-top: 1px solid #808080;
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+.category-list {
+    padding: 0;
+    border-bottom: 1px solid #808080;
+    margin-bottom: 50px;
+}
+.category-button {
+    border-top: 1px solid #808080;
+    --inner-padding-start: 0;
+    --padding-start: 15px;
+    --inner-border-width: 0;
+    --inner-padding-end: 0;
+    --padding-end: 20px;
+    --min-height: auto;
+    height: auto;
+    font-size: 18px;
+    --background-focused-opacity: 1;
+    --background-hover-opacity: 1;
+    --background-activated-opacity: 1;
+    --color: #000;
+    --color-focused: #fff;
+    --color-hover: #fff;
+    --background-focused: #2E9BEE;
+    --background-hover: #2E9BEE;
+    --background-activated: #2E9BEE;
+}
+body .category-button ion-icon {
+    font-size: 35px;
+    color: #000;
+}
+body ion-item.category-button:hover ion-icon, 
+body ion-item.category-button:hover ion-label, 
+body ion-item.category-button:focus ion-icon, 
+body ion-item.category-button:focus ion-label {
+    color: #fff;
+}
+/* Inward end  */
 
 /* 
 

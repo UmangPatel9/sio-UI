@@ -193,7 +193,7 @@ export const RegistrationStep1: React.FC<any> = ({ next }) => {
                     </IonCol>
 
                     <IonCol size="8" className="sign-up-btn ion-align-self-center ion-margin-auto">
-                        <IonButton expand="block" shape="round" fill="outline" onClick={() => next(['firstName','lastName', 'telephone', 'email', 'password'])}>
+                        <IonButton expand="block" shape="round" fill="solid" onClick={() => next(['firstName','lastName', 'telephone', 'email', 'password'])}>
                             Continue
                         </IonButton>
                     </IonCol>

@@ -16,6 +16,10 @@ import MyProfile from './pages/My-Profile';
 import Users from './pages/Users';
 import InviteUser from './pages/Invite-User';
 import EditUser from './pages/Edit-User';
+import BillingFreePlan from './pages/Billing-Free-Plan';
+import BillingProPlan from './pages/Billing-Pro-Plan';
+import BuyPlan from './pages/Buy-Plan';
+import Inward from './pages/Inward';
 
 import Menu from './components/Menu';
 import Page from './pages/Page';
@@ -53,7 +57,11 @@ export const Routes = {
   myProfile: '/my-profile',
   users: '/users',
   inviteUser: '/invite-user',
-  editUser: '/edit-user'
+  editUser: '/edit-user',
+  billingFreePlan: '/billing-free-plan',
+  billingProPlan: '/billing-pro-plan',
+  buyPlan: '/buy-plan',
+  inward: '/inward'
 }
 
 setupIonicReact();
@@ -106,6 +114,18 @@ const App: React.FC = () => {
             </Route>
             <Route exact path={Routes.editUser}>
               <EditUser />
+            </Route>
+            <Route exact path={Routes.billingFreePlan}>
+              <BillingFreePlan />
+            </Route>
+            <Route exact path={Routes.billingProPlan}>
+              <BillingProPlan />
+            </Route>
+            <Route exact path={Routes.buyPlan}>
+              <BuyPlan />
+            </Route>
+            <Route exact path={Routes.inward}>
+              <Inward />
             </Route>
             <Route path="/page/:name" exact={true}>
               <Page />

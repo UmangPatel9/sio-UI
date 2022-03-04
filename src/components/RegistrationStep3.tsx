@@ -95,7 +95,7 @@ export const RegistrationStep3: React.FC<any> = ({ prev }) => {
                     </IonCol>
 
                     <IonCol size="12" className="sign-up-btn">
-                        <IonButton className="secondary-button" type="submit" expand="block" shape="round" fill="outline">
+                        <IonButton className="secondary-button" type="submit" expand="block" shape="round" fill="solid">
                             Register
                         </IonButton>
                     </IonCol>

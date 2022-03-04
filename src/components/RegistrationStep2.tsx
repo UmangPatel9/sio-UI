@@ -39,7 +39,7 @@ export const RegistrationStep2: React.FC<any> = ({ next, prev }) => {
                         <IonImg className="logo" src="assets/images/sio-logo.png" />
                     </IonButton>
                 </div>
-                <p className="ion-text-center">Check your Mobile for a code. The code expires shortly, so please enter it soon.</p>
+                <p className="ion-text-center">Check your Mobile for a magic code. The code expires shortly, so please enter it soon.</p>
                 <IonRow>
 
                     <IonCol size="12" className="email-field">
@@ -76,8 +76,8 @@ export const RegistrationStep2: React.FC<any> = ({ next, prev }) => {
                     </IonCol> */}
 
                     <IonCol size="12" className="sign-up-btn">
-                        <IonButton expand="block" shape="round" fill="outline" onClick={() => next(['verifyText'])}>
-                        Verify
+                        <IonButton expand="block" shape="round" fill="solid" onClick={() => next(['verifyText'])}>
+                            Verify
                         </IonButton>
                     </IonCol>
 
