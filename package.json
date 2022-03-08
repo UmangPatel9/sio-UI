@@ -2,6 +2,9 @@
   "name": "sio-app",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": "12.19.15"
+  },
   "dependencies": {
     "@capacitor/app": "1.1.0",
     "@capacitor/core": "3.4.0",
