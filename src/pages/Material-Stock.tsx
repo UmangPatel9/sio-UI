@@ -28,7 +28,7 @@ import {
   import { Routes } from '../App';
   
   
-  const Inward: React.FC = () => {
+  const MaterialStock: React.FC = () => {
 
     let history = useHistory();
 
@@ -44,25 +44,25 @@ import {
 
     }
 
-    const categoryListArray = [
-        { categoryName: "Cement", categoryURL:"/inward-sub-category" },
-        { categoryName: "Gypsum", categoryURL:"/inward-sub-category" },
-        { categoryName: "Kitchen Sink", categoryURL:"/inward-sub-category" },
-        { categoryName: "Floor Tiles", categoryURL:"/inward-sub-category" },
-        { categoryName: "Sand", categoryURL:"/inward-sub-category" },
-        { categoryName: "Brick", categoryURL:"/inward-sub-category" },
-        { categoryName: "Plumbing Fitting", categoryURL:"/inward-sub-category" },
+    const materialStockListArray = [
+        { categoryName: "OPC", currentStock:"250", categoryURL:"/stock-report" },
+        { categoryName: "PPC", currentStock:"550", categoryURL:"/stock-report" },
+        { categoryName: "Slag", currentStock:"1000", categoryURL:"/stock-report" },
     ];
 
-    const [categoryList, setCategoryList] = useState(categoryListArray);
+    const [stockList, setStockList] = useState(materialStockListArray);
 
     const renderCategoryList = () => {
-        return categoryList.map((x, i) => {
+        return stockList.map((x, i) => {
             return (
                 <IonItem key={i} className="category-button" routerLink={x.categoryURL}>
                     <IonLabel>
                         {x.categoryName}
                     </IonLabel>
+                    <div className="current-stock">
+                        <h5><b>{x.currentStock}</b></h5>
+                        <p>bags</p>
+                    </div>
                     <IonIcon icon="/assets/images/arrow-right-icon.svg" slot="end" />
                 </IonItem>
                 
@@ -85,12 +85,24 @@ import {
                                 <IonIcon icon="/assets/images/arrow-left-icon.svg" ></IonIcon>
                             </IonButton>
                             <div className="project-title-wrap">
-                                <h3><b>Inward</b></h3>
+                                <h3><b>Stock</b></h3>
                                 <h3><b>Happy Homes</b></h3>
                             </div>
                         </div>
 
-                        <h2 className="category-name">Category</h2>
+                        <h2 className="category-name">Cement</h2>
+
+                        <div className="stock-buttons buttons-wrap">
+                            <IonButton fill="clear" routerLink={Routes.inwardEntry}>
+                                <IonIcon icon="/assets/images/inward-icon.svg" ></IonIcon>
+                            </IonButton>
+                            <IonButton fill="clear" routerLink={Routes.outwardEntry}>
+                                <IonIcon icon="/assets/images/outward-icon.svg" ></IonIcon>
+                            </IonButton>
+                            <IonButton fill="clear" className="export-button">
+                                <IonIcon icon="/assets/images/export-icon.svg" ></IonIcon>
+                            </IonButton>
+                        </div>
 
                         <IonList className="category-list">
                             {renderCategoryList()}
@@ -109,4 +121,4 @@ import {
     );
   };
   
-  export default Inward;
+  export default MaterialStock;

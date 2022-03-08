@@ -20,6 +20,14 @@ import BillingFreePlan from './pages/Billing-Free-Plan';
 import BillingProPlan from './pages/Billing-Pro-Plan';
 import BuyPlan from './pages/Buy-Plan';
 import Inward from './pages/Inward';
+import InwardSubCategory from './pages/Inward-Sub-Category';
+import InwardEntry from './pages/Inward-Entry';
+import Outward from './pages/Outward';
+import OutwardSubCategory from './pages/Outward-Sub-Category';
+import OutwardEntry from './pages/Outward-Entry';
+import MaterialStock from './pages/Material-Stock';
+import StockReport from './pages/Stock-Report';
+import StockUsedReport from './pages/Stock-Used-Report';
 
 import Menu from './components/Menu';
 import Page from './pages/Page';
@@ -61,7 +69,15 @@ export const Routes = {
   billingFreePlan: '/billing-free-plan',
   billingProPlan: '/billing-pro-plan',
   buyPlan: '/buy-plan',
-  inward: '/inward'
+  inward: '/inward',
+  inwardSubCategory: '/inward-sub-category',
+  inwardEntry: '/inward-entry',
+  outward: '/outward',
+  outwardSubCategory: '/outward-sub-category',
+  outwardEntry: '/outward-entry',
+  materialStock: '/material-stock',
+  stockReport: '/stock-report',
+  stockUsedReport: '/stock-used-report'
 }
 
 setupIonicReact();
@@ -126,6 +142,30 @@ const App: React.FC = () => {
             </Route>
             <Route exact path={Routes.inward}>
               <Inward />
+            </Route>
+            <Route exact path={Routes.inwardSubCategory}>
+              <InwardSubCategory />
+            </Route>
+            <Route exact path={Routes.inwardEntry}>
+              <InwardEntry />
+            </Route>
+            <Route exact path={Routes.outward}>
+              <Outward />
+            </Route>
+            <Route exact path={Routes.outwardSubCategory}>
+              <OutwardSubCategory />
+            </Route>
+            <Route exact path={Routes.outwardEntry}>
+              <OutwardEntry />
+            </Route>
+            <Route exact path={Routes.materialStock}>
+              <MaterialStock />
+            </Route>
+            <Route exact path={Routes.stockReport}>
+              <StockReport />
+            </Route>
+            <Route exact path={Routes.stockUsedReport}>
+              <StockUsedReport />
             </Route>
             <Route path="/page/:name" exact={true}>
               <Page />

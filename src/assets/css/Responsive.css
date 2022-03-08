@@ -130,11 +130,29 @@
     /* USers end  */
 
     /* Buy Plan start  */
-    .subsciption-note {
+    .subsciption-note,
+    .category-name,
+    .category-list {
         margin-left:-26px;
         margin-right:-26px;
     }
     /* Buy Plan end  */
+
+    /* Stock Report start  */    
+    .stock-report-tabs {
+        margin-left: -26px;
+        margin-right: -26px;
+    }
+    ion-segment {
+        padding: 0 15px;
+    }
+    .report-table {
+        margin: 0;
+    }
+    ion-slide {
+        padding: 0;
+    }
+    /* Stock Report end  */
 
 }
 

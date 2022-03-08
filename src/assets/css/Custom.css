@@ -245,10 +245,12 @@ body .sc-ion-textarea-md-h {
     --placeholder-font-weight: 300;
     --placeholder-opacity: 1;
 }
-body ion-textarea,
+body ion-textarea, 
 body .sc-ion-textarea-md-h {
     height: auto;
     padding: 15px 20px;
+    min-height: 70px;
+    margin-top: 0;
 }
 .native-textarea.sc-ion-textarea-md {
     padding: 0;
@@ -460,6 +462,9 @@ body .button.button-clear.scroll-to-bottom-btn {
     padding: 5vw 0;
     height: 100%;
 }
+.main-row {
+    height: auto;
+}
 .login-form-row {
     align-items: center;
 }
@@ -486,7 +491,8 @@ body .input-with-icon .native-input.sc-ion-input-md {
     align-self: flex-end;
 }
 .login-form .forget-password .button.button-clear,
-body .buy-plan-footer .button.button-clear.clear-button-with-border {
+body .buy-plan-footer .button.button-clear.clear-button-with-border,
+body .button.button-clear.clear-button-with-border {
     letter-spacing: normal;
     margin: 0;
     line-height: 1.2;
@@ -504,8 +510,21 @@ body .buy-plan-footer .button.button-clear.clear-button-with-border {
 .login-form .forget-password .button.button-clear:hover,
 .login-form .forget-password .button.button-clear:focus,
 body .buy-plan-footer .button.button-clear.clear-button-with-border:hover,
-body .buy-plan-footer .button.button-clear.clear-button-with-border:focus {
+body .buy-plan-footer .button.button-clear.clear-button-with-border:focus,
+body .button.button-clear.clear-button-with-border:hover,
+body .button.button-clear.clear-button-with-border:focus {
     border-bottom-color: #2E9BEE;
+}
+body .button.button-clear.secondary-button.clear-button-with-border {
+    --color: #2E9BEE;
+    --color-activated: #414BB2;
+    --color-focused: #414BB2;
+    --color-hover: #414BB2;
+    border-bottom: 3px solid #90C7F1;
+}
+body .button.button-clear.secondary-button.clear-button-with-border:hover,
+body .button.button-clear.secondary-button.clear-button-with-border:focus {
+    border-bottom-color: #B3B6D7;
 }
 .login-form .create-account-btn {
     margin-top: 3rem;
@@ -1067,11 +1086,138 @@ body .category-button ion-icon {
 }
 body ion-item.category-button:hover ion-icon, 
 body ion-item.category-button:hover ion-label, 
+body ion-item.category-button:hover .current-stock h5, 
 body ion-item.category-button:focus ion-icon, 
-body ion-item.category-button:focus ion-label {
+body ion-item.category-button:focus ion-label,
+body ion-item.category-button:focus  .current-stock h5 {
     color: #fff;
 }
 /* Inward end  */
+
+/* Inward entry start  */
+.material-add-form ion-icon {
+    font-size: 35px;
+}
+.material-add-form .form-lable {
+    font-size: 18px;
+}
+.form-lable.material-lable {
+    margin: 0;
+    padding-top: 15px;
+}
+.material-select-row + .material-select-row {
+    margin-top: 10px;
+}
+/* Inward entry end  */
+
+/* Material stock start  */
+.current-stock h3, 
+.current-stock h5, 
+.current-stock p {
+    margin: 0;
+    text-align: center;
+}
+.current-stock h3,
+.current-stock h5 {
+    color: #0CA789;
+}
+.stock-buttons.buttons-wrap {
+    text-align: right;
+    margin-bottom: 15px;
+}
+.buttons-wrap .export-button ion-icon {
+    font-size: 35px;
+}
+.current-stock p {
+    font-size: 14px;
+}
+/* Material stock end  */
+
+/* Stock report start  */
+.stock-report-title {
+    margin-bottom: 15px;
+}
+.stock-report-title .current-stock {
+    display: flex;
+    align-items: center;
+}
+.stock-report-title .stock-buttons.buttons-wrap {
+    margin: 0;
+}
+.stock-report-title .current-stock p {
+    font-size: 16px;
+    margin-left: 5px;
+}
+.report-table {
+    text-align: left;
+    margin-top: 0;
+}
+ion-segment {
+    justify-content: space-between;
+}
+ion-segment-button {
+    --color-checked: #414BB2;
+    --color-selected: #414BB2;
+    --color-focused: #414BB2;
+    overflow: hidden;
+    flex: 0 0 auto;
+    --padding-start: 0;
+    --padding-end: 0;
+    text-transform: none;
+    font-size: 16px;
+}
+ion-segment-button.segment-button-checked {
+    --border-color: #414BB2;
+    border-bottom-color: #414BB2;
+    font-weight: normal;
+}
+.person-name {
+    color: #652CB3;
+}
+.report-table p {
+    line-height: 1.4;
+}
+.photo-buttons {
+    margin-top: 15px;
+}
+.quantity-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.photo-popup .ion-page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+}
+body .button.button-clear.close-popup-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+    font-size: 20px;
+    width: auto;
+    min-width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    --color: #2E9BEE;
+}
+.stock-report-tabs {
+    /* margin-left: -1px;
+    margin-right: -1px; */
+}
+ion-slide {
+    padding: 0 1px;
+}
+.chart {
+    margin: 50px 0;
+}
+/* Stock report end  */
 
 /* 
 

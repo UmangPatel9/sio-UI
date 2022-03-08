@@ -28,7 +28,7 @@ import {
   import { Routes } from '../App';
   
   
-  const Inward: React.FC = () => {
+  const Outward: React.FC = () => {
 
     let history = useHistory();
 
@@ -45,13 +45,13 @@ import {
     }
 
     const categoryListArray = [
-        { categoryName: "Cement", categoryURL:"/inward-sub-category" },
-        { categoryName: "Gypsum", categoryURL:"/inward-sub-category" },
-        { categoryName: "Kitchen Sink", categoryURL:"/inward-sub-category" },
-        { categoryName: "Floor Tiles", categoryURL:"/inward-sub-category" },
-        { categoryName: "Sand", categoryURL:"/inward-sub-category" },
-        { categoryName: "Brick", categoryURL:"/inward-sub-category" },
-        { categoryName: "Plumbing Fitting", categoryURL:"/inward-sub-category" },
+        { categoryName: "Cement", categoryURL:"/outward-sub-category" },
+        { categoryName: "Gypsum", categoryURL:"/outward-sub-category" },
+        { categoryName: "Kitchen Sink", categoryURL:"/outward-sub-category" },
+        { categoryName: "Floor Tiles", categoryURL:"/outward-sub-category" },
+        { categoryName: "Sand", categoryURL:"/outward-sub-category" },
+        { categoryName: "Brick", categoryURL:"/outward-sub-category" },
+        { categoryName: "Plumbing Fitting", categoryURL:"/outward-sub-category" },
     ];
 
     const [categoryList, setCategoryList] = useState(categoryListArray);
@@ -85,7 +85,7 @@ import {
                                 <IonIcon icon="/assets/images/arrow-left-icon.svg" ></IonIcon>
                             </IonButton>
                             <div className="project-title-wrap">
-                                <h3><b>Inward</b></h3>
+                                <h3><b>Outward</b></h3>
                                 <h3><b>Happy Homes</b></h3>
                             </div>
                         </div>
@@ -109,4 +109,4 @@ import {
     );
   };
   
-  export default Inward;
+  export default Outward;

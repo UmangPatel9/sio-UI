@@ -28,7 +28,7 @@ import {
   import { Routes } from '../App';
   
   
-  const Inward: React.FC = () => {
+  const OutwardSubCategory: React.FC = () => {
 
     let history = useHistory();
 
@@ -45,13 +45,11 @@ import {
     }
 
     const categoryListArray = [
-        { categoryName: "Cement", categoryURL:"/inward-sub-category" },
-        { categoryName: "Gypsum", categoryURL:"/inward-sub-category" },
-        { categoryName: "Kitchen Sink", categoryURL:"/inward-sub-category" },
-        { categoryName: "Floor Tiles", categoryURL:"/inward-sub-category" },
-        { categoryName: "Sand", categoryURL:"/inward-sub-category" },
-        { categoryName: "Brick", categoryURL:"/inward-sub-category" },
-        { categoryName: "Plumbing Fitting", categoryURL:"/inward-sub-category" },
+        { categoryName: "Door Frames", categoryURL:"/outward-entry" },
+        { categoryName: "Door", categoryURL:"/outward-entry" },
+        { categoryName: "Door Locks", categoryURL:"/outward-entry" },
+        { categoryName: "Door Handles", categoryURL:"/outward-entry" },
+        { categoryName: "Bolts", categoryURL:"/outward-entry" },
     ];
 
     const [categoryList, setCategoryList] = useState(categoryListArray);
@@ -81,16 +79,16 @@ import {
                     <IonCol size="12" sizeMd="6" sizeLg="4">
 
                         <div className="select-project-header">
-                            <IonButton fill="clear" routerLink={Routes.dashboard}>
+                            <IonButton fill="clear" routerLink={Routes.outward}>
                                 <IonIcon icon="/assets/images/arrow-left-icon.svg" ></IonIcon>
                             </IonButton>
                             <div className="project-title-wrap">
-                                <h3><b>Inward</b></h3>
+                                <h3><b>Outward</b></h3>
                                 <h3><b>Happy Homes</b></h3>
                             </div>
                         </div>
 
-                        <h2 className="category-name">Category</h2>
+                        <h2 className="category-name">Doors and Accessories</h2>
 
                         <IonList className="category-list">
                             {renderCategoryList()}
@@ -109,4 +107,4 @@ import {
     );
   };
   
-  export default Inward;
+  export default OutwardSubCategory;

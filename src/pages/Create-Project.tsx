@@ -31,8 +31,8 @@ import {
   
   // import Header from '../components/Header';
   import '@ionic/react/css/text-transformation.css';
-    import '@ionic/react/css/flex-utils.css';
-    import '../assets/css/Custom.css';
+  import '@ionic/react/css/flex-utils.css';
+  import '../assets/css/Custom.css';
   import '../assets/css/Responsive.css';
   
   

@@ -28,7 +28,7 @@ import {
   import { Routes } from '../App';
   
   
-  const Inward: React.FC = () => {
+  const InwardSubCategory: React.FC = () => {
 
     let history = useHistory();
 
@@ -45,13 +45,13 @@ import {
     }
 
     const categoryListArray = [
-        { categoryName: "Cement", categoryURL:"/inward-sub-category" },
-        { categoryName: "Gypsum", categoryURL:"/inward-sub-category" },
-        { categoryName: "Kitchen Sink", categoryURL:"/inward-sub-category" },
-        { categoryName: "Floor Tiles", categoryURL:"/inward-sub-category" },
-        { categoryName: "Sand", categoryURL:"/inward-sub-category" },
-        { categoryName: "Brick", categoryURL:"/inward-sub-category" },
-        { categoryName: "Plumbing Fitting", categoryURL:"/inward-sub-category" },
+        { categoryName: "CPVC Pipes Fittings", categoryURL:"/inward-entry" },
+        { categoryName: "CPVC Brass Insert Fittings", categoryURL:"/inward-entry" },
+        { categoryName: "UPVC Pipes Fittings", categoryURL:"/inward-entry" },
+        { categoryName: "GI Fittings Pipes", categoryURL:"/inward-entry" },
+        { categoryName: "PVC Solvent Joint Fittings", categoryURL:"/inward-entry" },
+        { categoryName: "Faucets Concealed Fitting", categoryURL:"/inward-entry" },
+        { categoryName: "Sanitary Fitting EWC", categoryURL:"/inward-entry" },
     ];
 
     const [categoryList, setCategoryList] = useState(categoryListArray);
@@ -81,7 +81,7 @@ import {
                     <IonCol size="12" sizeMd="6" sizeLg="4">
 
                         <div className="select-project-header">
-                            <IonButton fill="clear" routerLink={Routes.dashboard}>
+                            <IonButton fill="clear" routerLink={Routes.inward}>
                                 <IonIcon icon="/assets/images/arrow-left-icon.svg" ></IonIcon>
                             </IonButton>
                             <div className="project-title-wrap">
@@ -90,7 +90,7 @@ import {
                             </div>
                         </div>
 
-                        <h2 className="category-name">Category</h2>
+                        <h2 className="category-name">Plumbing Fitting</h2>
 
                         <IonList className="category-list">
                             {renderCategoryList()}
@@ -109,4 +109,4 @@ import {
     );
   };
   
-  export default Inward;
+  export default InwardSubCategory;
