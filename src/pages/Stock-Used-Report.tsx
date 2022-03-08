@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
+// import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+// import { Pie } from 'react-chartjs-2';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+// ChartJS.register(ArcElement, Tooltip, Legend);
 
 import { 
     IonContent, 
@@ -70,24 +70,24 @@ import {
       setValue(''+index)
     }
 
-    const data = {
-        labels: ['Concreting Slab', 'Concreting Coulomb'],
-        datasets: [
-          {
-            label: '# of Votes',
-            data: [450, 350],
-            backgroundColor: [
-                '#7CB5EC',
-                '#434348',
-            ],
-            borderColor: [
-                '#ffffff',
-                '#ffffff',
-            ],
-            borderWidth: 1,
-          },
-        ],
-      };
+    // const data = {
+    //     labels: ['Concreting Slab', 'Concreting Coulomb'],
+    //     datasets: [
+    //       {
+    //         label: '# of Votes',
+    //         data: [450, 350],
+    //         backgroundColor: [
+    //             '#7CB5EC',
+    //             '#434348',
+    //         ],
+    //         borderColor: [
+    //             '#ffffff',
+    //             '#ffffff',
+    //         ],
+    //         borderWidth: 1,
+    //       },
+    //     ],
+    //   };
   
     return (
         <IonPage>
@@ -122,7 +122,7 @@ import {
                         </IonRow>
 
                         <div className="chart">
-                            <Pie data={data} />
+                            {/* <Pie data={data} /> */}
                         </div>
 
                         <IonGrid className="table">
