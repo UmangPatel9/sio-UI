@@ -1,6 +1,12 @@
 @media (prefers-color-scheme: dark) {
     ion-list,
-    ion-list ion-item {
+    ion-list ion-item,
+    ion-card,
+    ion-card-content {
+        --background: #fff;
+        --color: #000;
+    }
+    ion-card .list-md {
         background: #fff;
     }
 }
