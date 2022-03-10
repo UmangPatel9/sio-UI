@@ -73,7 +73,7 @@ const SelectWorkspace: React.FC = () => {
 
                 <IonCard className="light-pink-card">
                     <h5>Want to create another Workspace?</h5>
-                    <IonButton className="secondary-button" href="#" fill="solid" routerLink="#">
+                    <IonButton className="secondary-button" fill="solid" routerLink={Routes.createNewWorkspace}>
                         Create Workspace
                     </IonButton>
                 </IonCard>

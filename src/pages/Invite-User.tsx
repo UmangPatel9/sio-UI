@@ -137,7 +137,6 @@ import {
                             <Controller
                                 render={({ field: { onChange, onBlur, value } }) => (
                                   <IonInput 
-                                      type="number"
                                       onIonChange={onChange}
                                       onBlur={onBlur}
                                       value={value}
@@ -175,7 +174,6 @@ import {
                             <Controller
                                 render={({ field: { onChange, onBlur, value } }) => (
                                   <IonInput 
-                                      type="email"
                                       onIonChange={onChange}
                                       onBlur={onBlur}
                                       value={value}

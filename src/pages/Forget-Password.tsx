@@ -52,40 +52,26 @@ const ForgetPassword: React.FC = () => {
                               <p>Enter the email assosicated with your account and we'll send you an email with instruction to reset your password.</p>
 
                               <IonLabel className="form-lable ion-margin-top" >Email Address:</IonLabel>
-                              {/* <IonInput className="ion-margin-top" placeholder="Email"/> */}
-                              {/* <IonInput
-                                 mode="md"
-                                 type="email"
-                                 // placeholder="Email"
-                                 // {...register('email', {
-                                 //    required: 'Email is a required',
-                                 //    pattern: {
-                                 //    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                 //    message: 'Invalid email address'
-                                 //    }
-                                 // })}
-                              /> */}
                               <Controller
-                                render={({ field: { onChange, onBlur, value } }) => (
-                                  // <IonInput onIonChange={onChange} />
-                                  <IonInput 
-                                      type="email"
+                                 render={({ field: { onChange, onBlur, value } }) => (
+                                    // <IonInput onIonChange={onChange} />
+                                    <IonInput 
                                       onIonChange={onChange}
                                       onBlur={onBlur}
                                       value={value}
                                       className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                                       placeholder="" 
                                     />
-                                )}
-                                control={control}
-                                name="email"
-                                rules={{
-                                  required: "This is a required field",
-                                  pattern: {
-                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                    message: "invalid email address"
-                                  }
-                                }}
+                                 )}
+                                 control={control}
+                                 name="email"
+                                 rules={{
+                                    required: "This is a required field",
+                                    pattern: {
+                                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                       message: "invalid email address"
+                                    }
+                                 }}
                               />
                               <ErrorMessage
                                  errors={errors}

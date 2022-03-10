@@ -47,7 +47,7 @@ import {
     };
   
     const onSubmit = (data: any) => {
-    console.log(data);
+        console.log(data);
     };
 
     const doNothing = () => {
@@ -86,7 +86,6 @@ import {
                         <div className="input-with-icon read-only-input">                              
                             <IonIcon icon={phonePortraitSharp} />
                             <IonInput
-                                type="number"
                                 value="9825198251"
                                 className="form-control"
                                 placeholder=""
@@ -100,7 +99,6 @@ import {
                         <div className="input-with-icon read-only-input">                              
                             <IonIcon icon={mailSharp} />
                             <IonInput 
-                                type="email"
                                 value="abc@xyz.com"
                                 className="form-control"
                                 placeholder="" 

@@ -32,8 +32,8 @@ const Home: React.FC = () => {
     const onSubmit = (data: any) => { 
       console.log(data.username);
       console.log(data.password);
-      if (data.email == "tenant@gmail.com" && data.password1 == "12345") {
-        history.push(Routes.selectWorkspace);
+      if (data.username == "admin@gmail.com" && data.password == "12345") {
+        history.push(Routes.dashboard);
       }
       else {
         history.push(Routes.selectWorkspace);

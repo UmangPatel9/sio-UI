@@ -93,7 +93,7 @@ const SelectProject: React.FC = () => {
 
                 <IonCard className="light-pink-card">
                     <h5>Want to create another Project?</h5>
-                    <IonButton className="secondary-button" href="#" fill="solid" routerLink="#">
+                    <IonButton className="secondary-button" fill="solid" routerLink={Routes.createProject}>
                         Create Project
                     </IonButton>
                 </IonCard>

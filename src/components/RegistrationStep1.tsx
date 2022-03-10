@@ -95,7 +95,6 @@ export const RegistrationStep1: React.FC<any> = ({ next }) => {
                             <Controller
                                 render={({ field: { onChange, onBlur, value } }) => (
                                   <IonInput 
-                                      type="number"
                                       onIonChange={onChange}
                                       onBlur={onBlur}
                                       value={value}
@@ -133,7 +132,6 @@ export const RegistrationStep1: React.FC<any> = ({ next }) => {
                             <Controller
                                 render={({ field: { onChange, onBlur, value } }) => (
                                   <IonInput 
-                                      type="email"
                                       onIonChange={onChange}
                                       onBlur={onBlur}
                                       value={value}
