@@ -43,21 +43,20 @@ import {
 
     const [selectedStartDate, setSelectedStartDate] = useState<string>('2022-01-01T13:47:20.789');
     const [popoverDate2, setPopoverDate2] = useState('');
-    const customDatetime = useRef();
-    // const confirm = () => {
+    const customDatetime = useRef<HTMLIonContentElement | null>(null);
+
+    // const confirm = async (e: any) => {
     //     if (customDatetime === undefined) return;
-        
-    //     customDatetime.confirm();
+    //         customDatetime.current.confirm(e);
     // };
     
-    // const reset = () => {
+    // const reset = async (e: any) => {
     //     if (customDatetime === undefined) return;
-        
-    //     customDatetime.reset();
+    //         customDatetime?.current?.reset(e);
     // };
 
     const formatDate = (value: string) => {
-        return format(parseISO(value), 'MMM dd yyyy');
+        return format(parseISO(value), 'dd-MM-yyyy');
     };
 
 
@@ -110,7 +109,6 @@ import {
                                         onBlur={onBlur}
                                         className={`form-control ${errors.buiding ? 'is-invalid' : ''}`}
                                         placeholder="" 
-                                        value={x.building}
                                     />
                                 )}
                                 control={control}
@@ -121,7 +119,7 @@ import {
                             />
                             <ErrorMessage
                                 errors={errors}
-                                name="buiding"
+                                name="buiding{i+1}" 
                                 as={<div className="error-message" style={{ color: 'red' }} />}
                             />
                         </IonCol>
@@ -136,7 +134,6 @@ import {
                                         onBlur={onBlur}
                                         className={`form-control ${errors.wing ? 'is-invalid' : ''}`}
                                         placeholder="" 
-                                        value={x.building}
                                     />
                                 )}
                                 control={control}
@@ -162,7 +159,6 @@ import {
                                         onBlur={onBlur}
                                         className={`form-control ${errors.flat ? 'is-invalid' : ''}`}
                                         placeholder="" 
-                                        value={x.building}
                                     />
                                 )}
                                 control={control}
@@ -225,7 +221,7 @@ import {
                     <IonCol size="12" sizeMd="6" sizeLg="4">
                         <div className="select-project-header">
                             <IonButton className="ion-text-right" fill="clear" onClick={pageBack}>
-                                <IonIcon icon={chevronBack} ></IonIcon>
+                                <IonIcon icon="/assets/images/arrow-left-icon.svg" ></IonIcon>
                             </IonButton>
                             <div className="project-title-wrap">
                                 <h6>Select Project of</h6>
@@ -356,11 +352,12 @@ import {
                                                 <IonIcon icon={calendar} />
                                             </IonButton>
                                             {/* <IonIcon icon="assets/images/calendar-icon.svg" /> */}
-                                            <IonModal trigger="open-modal">
+                                            <IonModal className="date-picker-popup" trigger="open-modal">
                                                 <IonContent>
                                                     <IonDatetime
                                                         // ref={customDatetime}
                                                         presentation="date"
+                                                        showDefaultButtons={true}
                                                         onIonChange={ev => setPopoverDate2(formatDate(ev.detail.value!))}
                                                     />
                                                     {/* <IonButtons slot="buttons">

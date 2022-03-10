@@ -31,7 +31,7 @@ export const RegistrationStep2: React.FC<any> = ({ next, prev }) => {
             <IonGrid>
                 <div className="back-arrow">
                     <IonButton className="ion-text-right" fill="clear" onClick={() => prev()}   >
-                            <IonIcon icon={chevronBack} ></IonIcon>
+                            <IonIcon icon="/assets/images/arrow-left-icon.svg" ></IonIcon>
                     </IonButton>
                 </div>
                 <div className="main-logo ion-hide-md-up">

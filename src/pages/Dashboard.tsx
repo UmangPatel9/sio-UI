@@ -54,7 +54,7 @@ import {
 
                         <div className="select-project-header">
                             <IonButton className="ion-text-right" fill="clear" onClick={pageBack}>
-                                <IonIcon icon={chevronBack} ></IonIcon>
+                                <IonIcon icon="/assets/images/arrow-left-icon.svg" ></IonIcon>
                             </IonButton>
                             <div className="project-title-wrap">
                                 <h3><b>Dashboard</b></h3>
@@ -66,10 +66,10 @@ import {
                                 <h4 className="ion-no-margin">Project</h4>
                             </IonCol>
                             <IonCol size="3" sizeMd="3"  sizeLg="3" className="buttons-wrap ion-text-end ion-no-padding">
-                                <IonButton fill="clear">
+                                <IonButton fill="clear" routerLink={Routes.selectWorkspace}>
                                     <IonIcon icon="assets/images/arrow-down-icon.svg" ></IonIcon>
                                 </IonButton>
-                                <IonButton fill="clear">
+                                <IonButton fill="clear" routerLink={Routes.selectWorkspace}>
                                     <IonIcon icon="/assets/images/edit-icon.svg" ></IonIcon>
                                 </IonButton>
                             </IonCol>

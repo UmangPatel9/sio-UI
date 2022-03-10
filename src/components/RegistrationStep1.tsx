@@ -24,7 +24,7 @@ export const RegistrationStep1: React.FC<any> = ({ next }) => {
             <IonGrid>
                 <div className="back-arrow">
                     <IonButton className="ion-text-right" fill="clear" routerLink="/">
-                            <IonIcon icon={chevronBack} ></IonIcon>
+                            <IonIcon icon="/assets/images/arrow-left-icon.svg" ></IonIcon>
                     </IonButton>
                     <h4>Back to Sign In</h4>
                 </div>

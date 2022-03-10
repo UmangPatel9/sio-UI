@@ -49,7 +49,7 @@ const SelectProject: React.FC = () => {
                 
                 <div className="select-project-header">
                     <IonButton className="ion-text-right" fill="clear" onClick={pageBack}>
-                        <IonIcon icon={chevronBack} ></IonIcon>
+                        <IonIcon icon="/assets/images/arrow-left-icon.svg" ></IonIcon>
                     </IonButton>
                     <div className="project-title-wrap">
                         <h6>Select Project of</h6>

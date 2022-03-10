@@ -54,7 +54,7 @@ import {
 
                         <div className="select-project-header my-account-header">
                             <IonButton className="ion-text-right" fill="clear" onClick={pageBack}>
-                                <IonIcon icon={chevronBack} ></IonIcon>
+                                <IonIcon icon="/assets/images/arrow-left-icon.svg" ></IonIcon>
                             </IonButton>
                             <div className="project-title-wrap">
                                 <h3><b>My Account</b></h3>
@@ -79,7 +79,7 @@ import {
                                 </IonButton>
                             </IonCol>
                             <IonCol size="6" sizeMd="6" sizeLg="6">
-                                <IonButton expand="block" fill="outline" routerLink={Routes.myAccount}>
+                                <IonButton expand="block" fill="outline" routerLink={Routes.billingProPlan}>
                                     <div className="button-inner">
                                         <IonIcon slot="icon-only" src="/assets/images/billing-icon.svg" />
                                         <h6 className="">Billing</h6>

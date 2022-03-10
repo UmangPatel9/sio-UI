@@ -120,15 +120,15 @@ import {
                             <IonSelect
                                 placeholder="Select One"
                                 value={field.value}
-                                className={`form-control ${errors.material ? 'is-invalid' : ''}`}
-                                onIonChange={(e) => setValue('material', e.detail.value)}
+                                className={`form-control ${errors.brand ? 'is-invalid' : ''}`}
+                                onIonChange={(e) => setValue('brand', e.detail.value)}
                             >
                                 <IonSelectOption value="{x.brand1}">{x.brand1}</IonSelectOption>
                                 <IonSelectOption value="{x.brand2}">{x.brand2}</IonSelectOption>
                             </IonSelect>
                             )}
                             control={control}
-                            name="material"
+                            name="brand"
                             rules={{ required: 'Please select brand' }}
                         />
                     </IonCol>
@@ -138,7 +138,7 @@ import {
                     <IonCol size="12" className="ion-no-padding">
                         <ErrorMessage
                             errors={errors}
-                            name="material"
+                            name="brand"
                             as={<div className="error-message" style={{ color: 'red' }} />}
                         />
                     </IonCol>

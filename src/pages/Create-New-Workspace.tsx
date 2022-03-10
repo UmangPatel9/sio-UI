@@ -59,7 +59,7 @@ import {
 
                             <div className="back-arrow">
                                 <IonButton className="ion-text-right" fill="clear" onClick={pageBack}   >
-                                    <IonIcon icon={chevronBack} ></IonIcon>
+                                    <IonIcon icon="/assets/images/arrow-left-icon.svg" ></IonIcon>
                                 </IonButton>
                             </div>
 

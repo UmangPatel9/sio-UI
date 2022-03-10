@@ -123,7 +123,7 @@ import {
 
                         <div className="select-project-header">
                             <IonButton fill="clear" onClick={pageBack}>
-                                <IonIcon icon={chevronBack} ></IonIcon>
+                                <IonIcon icon="/assets/images/arrow-left-icon.svg" ></IonIcon>
                             </IonButton>
                             <div className="project-title-wrap">
                                 <h3><b>Users</b></h3>
