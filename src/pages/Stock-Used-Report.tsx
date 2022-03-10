@@ -6,6 +6,8 @@ import { useHistory } from "react-router-dom";
 
 // ChartJS.register(ArcElement, Tooltip, Legend);
 
+import { PieChart, Pie, Tooltip, Legend, ResponsiveContainer } from "recharts";
+
 import { 
     IonContent, 
     IonPage, 
@@ -88,6 +90,11 @@ import {
     //       },
     //     ],
     //   };
+
+    const myData = [
+        { name: "Concreting Slab", value: 450, color: '#7CB5EC' },
+        { name: "Concreting Coulomb", value: 350, color: '#434348' },
+      ];
   
     return (
         <IonPage>
@@ -123,6 +130,22 @@ import {
 
                         <div className="chart">
                             {/* <Pie data={data} /> */}
+                            <ResponsiveContainer width="100%" height={400}>
+                                <PieChart>
+                                    <Pie
+                                        dataKey="value"
+                                        isAnimationActive={true}
+                                        data={myData}
+                                        outerRadius={150}
+                                        fill="#ccc"
+                                        label
+                                    />
+
+                                    {/* Display the tooltips */}
+                                    <Tooltip />
+                                    <Legend verticalAlign="top" height={36}/>
+                                </PieChart>
+                            </ResponsiveContainer>
                         </div>
 
                         <IonGrid className="table">
