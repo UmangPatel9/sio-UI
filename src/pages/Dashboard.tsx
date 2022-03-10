@@ -90,7 +90,7 @@ import {
                                 </IonButton>
                             </IonCol>
                             <IonCol size="6" sizeMd="6" sizeLg="6">
-                                <IonButton expand="block" fill="outline" routerLink={Routes.myAccount}>
+                                <IonButton expand="block" fill="outline" routerLink={Routes.stockReport}>
                                     <div className="button-inner">
                                         <IonIcon slot="icon-only" src="/assets/images/stock-icon.svg" />
                                         <h6 className="">Stock</h6>

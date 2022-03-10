@@ -30,8 +30,8 @@ const Home: React.FC = () => {
     
   
     const onSubmit = (data: any) => { 
-      console.log(data.email);
-      console.log(data.password1);
+      console.log(data.username);
+      console.log(data.password);
       if (data.email == "tenant@gmail.com" && data.password1 == "12345") {
         history.push(Routes.selectWorkspace);
       }
@@ -96,21 +96,22 @@ const Home: React.FC = () => {
                               <Controller
                                 render={({ field: { onChange, onBlur, value } }) => (
                                   <IonInput 
-                                      type="email"
+                                      type="text"
                                       onIonChange={onChange}
                                       onBlur={onBlur}
                                       value={value}
                                       className={`form-control ${errors.username ? 'is-invalid' : ''}`}
                                       placeholder="" 
-                                    />
+                                  />
                                 )}
                                 control={control}
                                 name="username"
                                 rules={{
-                                  required: "This is a required field",
+                                  required: "Please enter email address or phone number",
                                   pattern: {
-                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                    message: "invalid email address"
+                                    // value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                    value: /^([_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5}))|(\d+$)$/,
+                                    message: "invalid email address or phone number"
                                   }
                                 }}
                               />
@@ -140,7 +141,7 @@ const Home: React.FC = () => {
                                 control={control}
                                 name="password"
                                 rules={{
-                                  required: "Password is required"  
+                                  required: "Please enter password"  
                                 }}
                               />
                             </div>
