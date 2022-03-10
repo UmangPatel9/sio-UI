@@ -1,7 +1,7 @@
 @media (prefers-color-scheme: dark) {
-    ion-footer ion-list.list-md,
-    ion-footer ion-list ion-item {
-        background-color: #fff;
+    ion-list,
+    ion-list ion-item {
+        background: #fff;
     }
 }
 

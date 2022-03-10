@@ -16,7 +16,7 @@ import {
     IonTextarea 
   } from '@ionic/react';
   
-  import { addCircleSharp } from 'ionicons/icons';
+  import { addCircleSharp, removeCircleSharp } from 'ionicons/icons';
 
   import { FormProvider, useForm, Controller } from "react-hook-form";
   import { ErrorMessage } from '@hookform/error-message';
@@ -50,8 +50,30 @@ import {
 
     }
 
+    const [inputValues, setInputValues] = useState({});
+    const [counter, setCounter] = useState(0);
+    const [brandCounter, setBrandCounter] = useState(0);
+
+    const handleClick = () => {
+        setCounter(counter + 1);
+        // console.log(counter);
+    };
+
+    const handleBrandClick = () => {
+        setBrandCounter(brandCounter + 1);
+        // console.log(brandCounter);
+    };
+
+    const handleRemoveMaterial = (index:any) => {
+        setCounter(counter - 1);
+    };
+
+    const handleRemoveBrand = (index:any) => {
+        setBrandCounter(brandCounter - 1);
+    };
+
     const materialListArray = [
-        { material1: "Elbow 45", material2:"Elbow 46" },
+        { type: "text", value:"" },
     ];
 
     const brandListArray = [
@@ -63,7 +85,7 @@ import {
 
     // handle click event of the Add button
     const handleAddMaterial = () => {
-        setMaterialList([...materialList, { material1: "Elbow 46", material2:"Elbow 47" }]);
+        setMaterialList([...materialList, { type:"text", value:"" }]);
     };
 
     const handleAddBrand = () => {
@@ -77,26 +99,29 @@ import {
                 <IonRow key={i} className="material-select-row ion-align-items-center">
                     <IonCol size="10" className="ion-no-padding">
                         <Controller
-                            render={({ field }) => (
-                            <IonSelect
-                                placeholder="Select One"
-                                value={field.value}
-                                className={`form-control ${errors.material ? 'is-invalid' : ''}`}
-                                onIonChange={(e) => setValue('material', e.detail.value)}
-                            >
-                                <IonSelectOption value="{x.material1}">{x.material1}</IonSelectOption>
-                                <IonSelectOption value="{x.materail2}">{x.material2}</IonSelectOption>
-                            </IonSelect>
+                            render={({ field: { onChange, onBlur, value } }) => (
+                                <IonInput 
+                                    type={"text"}
+                                    onIonChange={onChange}
+                                    onBlur={onBlur}
+                                    value={value}
+                                    className={`form-control ${errors.newMaterial ? 'is-invalid' : ''}`}
+                                    placeholder="Add text" 
+                                    mode="md" 
+                                />
                             )}
                             control={control}
-                            name="material"
-                            rules={{ required: 'Please select material' }}
+                            name="newMaterial"
+                            rules={{ required: 'Please enter material name' }}
                         />
                     </IonCol>
                     <IonCol size="2">
-                        <IonButton fill="clear" onClick={handleAddMaterial}><IonIcon icon={addCircleSharp} /></IonButton>
+                        <IonButton fill="clear" onClick={handleRemoveMaterial}><IonIcon icon={removeCircleSharp} /></IonButton>
                     </IonCol>
                     <IonCol size="12" className="ion-no-padding">
+                        <IonButton className="small-button" fill="solid" >
+                            Add
+                        </IonButton>
                         <ErrorMessage
                             errors={errors}
                             name="material"
@@ -177,7 +202,79 @@ import {
                                         <IonLabel className="form-lable material-lable">Material</IonLabel>
                                     </IonCol>
                                     <IonCol  size="9">
-                                        {renderMaterialList()}
+                                    <IonRow className="material-select-row ion-align-items-center">
+                                            <IonCol size="10" className="ion-no-padding">
+                                                <Controller
+                                                    render={({ field }) => (
+                                                    <IonSelect
+                                                        placeholder="Select One"
+                                                        value={field.value}
+                                                        className={`form-control ${errors.material ? 'is-invalid' : ''}`}
+                                                        onIonChange={(e) => setValue('material', e.detail.value)}
+                                                    >
+                                                        <IonSelectOption value="Elbow 45">Elbow 45</IonSelectOption>
+                                                        <IonSelectOption value="Elbow 46">Elbow 46</IonSelectOption>
+                                                    </IonSelect>
+                                                    )}
+                                                    control={control}
+                                                    name="material"
+                                                    rules={{ required: 'Please select material' }}
+                                                />
+                                            </IonCol>
+                                            <IonCol size="2">
+                                                <IonButton fill="clear" onClick={handleClick}><IonIcon icon={addCircleSharp} /></IonButton>
+                                            </IonCol>
+                                            <IonCol size="12" className="ion-no-padding">
+                                                <ErrorMessage
+                                                    errors={errors}
+                                                    name="material"
+                                                    as={<div className="error-message" style={{ color: 'red' }} />}
+                                                />
+                                            </IonCol>
+                                        </IonRow>
+                                        {/* {renderMaterialList()} */}
+                                        {/* <button onClick={handleClick}>Hello</button> */}
+
+                                        {Array.from(Array(counter)).map((c, index) => {
+                                            return (
+                
+                                                <IonRow key={c} className="material-select-row ion-align-items-center">
+                                                    <IonCol size="10" className="ion-no-padding">
+                                                        <Controller
+                                                            render={({ field: { onChange, onBlur, value } }) => (
+                                                                <IonInput 
+                                                                    type={"text"}
+                                                                    onIonChange={onChange}
+                                                                    onBlur={onBlur}
+                                                                    value={value}
+                                                                    className={`form-control ${errors.newMaterial ? 'is-invalid' : ''}`}
+                                                                    placeholder="Add text" 
+                                                                    mode="md" 
+                                                                />
+                                                            )}
+                                                            control={control}
+                                                            name="newMaterial"
+                                                            rules={{ required: 'Please enter material name' }}
+                                                        />
+                                                    </IonCol>
+                                                    <IonCol size="2">
+                                                        <IonButton fill="clear" onClick={handleRemoveMaterial}><IonIcon icon={removeCircleSharp} /></IonButton>
+                                                    </IonCol>
+                                                    <IonCol size="12" className="ion-no-padding">
+                                                        <IonButton className="small-button" fill="solid" >
+                                                            Add
+                                                        </IonButton>
+                                                        <ErrorMessage
+                                                            errors={errors}
+                                                            name="newMaterial"
+                                                            as={<div className="error-message" style={{ color: 'red' }} />}
+                                                        />
+                                                    </IonCol>
+                                                </IonRow>
+                                                
+                                            );
+                                            // <input key={c} type="text"></input>;
+                                        })}
                                     </IonCol>
                                 </IonRow>
 
@@ -186,7 +283,79 @@ import {
                                         <IonLabel className="form-lable material-lable">Brand</IonLabel>
                                     </IonCol>
                                     <IonCol  size="9">
-                                        {renderBrandList()}
+
+                                        <IonRow className="material-select-row ion-align-items-center">
+                                            <IonCol size="10" className="ion-no-padding">
+                                                <Controller
+                                                    render={({ field }) => (
+                                                    <IonSelect
+                                                        placeholder="Select One"
+                                                        value={field.value}
+                                                        className={`form-control ${errors.brand ? 'is-invalid' : ''}`}
+                                                        onIonChange={(e) => setValue('brand', e.detail.value)}
+                                                    >
+                                                        <IonSelectOption value="ABC">ABC</IonSelectOption>
+                                                        <IonSelectOption value="XYZ">XYZ</IonSelectOption>
+                                                    </IonSelect>
+                                                    )}
+                                                    control={control}
+                                                    name="brand"
+                                                    rules={{ required: 'Please select brand' }}
+                                                />
+                                            </IonCol>
+                                            <IonCol size="2">
+                                                <IonButton fill="clear" onClick={handleBrandClick}><IonIcon icon={addCircleSharp} /></IonButton>
+                                            </IonCol>
+                                            <IonCol size="12" className="ion-no-padding">
+                                                <ErrorMessage
+                                                    errors={errors}
+                                                    name="brand"
+                                                    as={<div className="error-message" style={{ color: 'red' }} />}
+                                                />
+                                            </IonCol>
+                                        </IonRow>
+                                        
+                                        {/* {renderBrandList()} */}
+                                        {Array.from(Array(brandCounter)).map((c, index) => {
+                                            return (
+                
+                                                <IonRow key={c} className="material-select-row ion-align-items-center">
+                                                    <IonCol size="10" className="ion-no-padding">
+                                                        <Controller
+                                                            render={({ field: { onChange, onBlur, value } }) => (
+                                                                <IonInput 
+                                                                    type={"text"}
+                                                                    onIonChange={onChange}
+                                                                    onBlur={onBlur}
+                                                                    value={value}
+                                                                    className={`form-control ${errors.newMaterial ? 'is-invalid' : ''}`}
+                                                                    placeholder="Add text" 
+                                                                    mode="md" 
+                                                                />
+                                                            )}
+                                                            control={control}
+                                                            name="newBrand"
+                                                            rules={{ required: 'Please enter material name' }}
+                                                        />
+                                                    </IonCol>
+                                                    <IonCol size="2">
+                                                        <IonButton fill="clear" onClick={handleRemoveBrand}><IonIcon icon={removeCircleSharp} /></IonButton>
+                                                    </IonCol>
+                                                    <IonCol size="12" className="ion-no-padding">
+                                                        <IonButton className="small-button" fill="solid" >
+                                                            Add
+                                                        </IonButton>
+                                                        <ErrorMessage
+                                                            errors={errors}
+                                                            name="newBrand"
+                                                            as={<div className="error-message" style={{ color: 'red' }} />}
+                                                        />
+                                                    </IonCol>
+                                                </IonRow>
+                                                
+                                            );
+                                            // <input key={c} type="text"></input>;
+                                        })}
                                     </IonCol>
                                 </IonRow>
 

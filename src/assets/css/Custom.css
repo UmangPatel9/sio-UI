@@ -1102,6 +1102,7 @@ body .buy-plan-footer .button.button-clear.clear-button-with-border {
     --color: #000;
     --color-focused: #fff;
     --color-hover: #fff;
+    --background: #fff;
     --background-focused: #2E9BEE;
     --background-hover: #2E9BEE;
     --background-activated: #2E9BEE;
@@ -1133,6 +1134,12 @@ body ion-item.category-button:focus  .current-stock h5 {
 }
 .material-select-row + .material-select-row {
     margin-top: 10px;
+}
+body .button.button-solid.small-button {
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    --padding-start: 20px;
+    --padding-end: 20px;
 }
 /* Inward entry end  */
 
