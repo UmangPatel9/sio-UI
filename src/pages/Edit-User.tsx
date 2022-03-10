@@ -10,12 +10,12 @@ import {
     IonGrid, 
     IonRow, 
     IonCol,
-    IonImg,
     IonIcon,
     IonSelect,
     IonSelectOption,
     IonItem,
-    IonCheckbox
+    IonCheckbox,
+    IonAlert
   } from '@ionic/react';
   
   import { chevronBack, personCircleSharp, keySharp, phonePortraitSharp, mailSharp } from 'ionicons/icons';
@@ -35,6 +35,8 @@ import {
   
   
   const EditUser: React.FC = () => {
+
+    const [editUser, setEditUser] = useState(false);
   
     const methods = useForm();
     const { register,  handleSubmit, setValue, getValues, control, formState: { errors } } = methods;
@@ -48,6 +50,7 @@ import {
   
     const onSubmit = (data: any) => {
         console.log(data);
+        // setRemoveUser(true);
     };
 
     const doNothing = () => {
@@ -144,6 +147,26 @@ import {
                             Update
                         </IonButton>
                     </IonCol>
+
+                    <IonAlert
+                        isOpen={editUser}
+                        onDidDismiss={() => setEditUser(false)}
+                        cssClass='red-alert'
+                        mode='md'
+                        header={'Remove Tenant'}
+                        message={'<p>Are you sure you want to remove this User?</p>'}
+                        buttons={[
+                            {
+                                text: 'Close',
+                                cssClass: 'btn-secondary',
+                                handler: () => {
+                                    history.push(Routes.users);
+                                    console.log('Exit File Okay');
+                                }
+                            }
+                            
+                        ]}
+                    />
 
                 </IonRow>
                 </form>
