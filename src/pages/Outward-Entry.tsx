@@ -254,6 +254,7 @@ import {
                                                     value={value}
                                                     className={`form-control ${errors.quatity ? 'is-invalid' : ''}`}
                                                     placeholder="" 
+                                                    mode="md" 
                                                     />
                                                 )}
                                                 control={control}

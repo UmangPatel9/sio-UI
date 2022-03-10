@@ -52,7 +52,8 @@ export const RegistrationStep2: React.FC<any> = ({ next, prev }) => {
                                     onBlur={onBlur}
                                     value={value}
                                     className={`form-control ${errors.verifyText ? 'is-invalid' : ''}`}
-                                    placeholder="Add text" 
+                                    placeholder="Add text"  
+                                    mode="md"
                                 />
                             )}
                             control={control}

@@ -108,7 +108,8 @@ import {
                                         onIonChange={onChange}
                                         onBlur={onBlur}
                                         className={`form-control ${errors.buiding ? 'is-invalid' : ''}`}
-                                        placeholder="" 
+                                        placeholder=""  
+                                        mode="md"
                                     />
                                 )}
                                 control={control}
@@ -134,6 +135,7 @@ import {
                                         onBlur={onBlur}
                                         className={`form-control ${errors.wing ? 'is-invalid' : ''}`}
                                         placeholder="" 
+                                        mode="md" 
                                     />
                                 )}
                                 control={control}
@@ -159,6 +161,7 @@ import {
                                         onBlur={onBlur}
                                         className={`form-control ${errors.flat ? 'is-invalid' : ''}`}
                                         placeholder="" 
+                                        mode="md" 
                                     />
                                 )}
                                 control={control}
@@ -247,6 +250,7 @@ import {
                                                     value={value}
                                                     className={`form-control ${errors.projectName ? 'is-invalid' : ''}`}
                                                     placeholder="Add text" 
+                                                    mode="md" 
                                                 />
                                             )}
                                             control={control}
@@ -303,6 +307,7 @@ import {
                                                     value={value}
                                                     className={`form-control ${errors.district ? 'is-invalid' : ''}`}
                                                     placeholder="Add text" 
+                                                    mode="md" 
                                                 />
                                             )}
                                             control={control}
@@ -329,6 +334,7 @@ import {
                                                     value={value}
                                                     className={`form-control ${errors.city ? 'is-invalid' : ''}`}
                                                     placeholder="Add text" 
+                                                    mode="md" 
                                                 />
                                             )}
                                             control={control}

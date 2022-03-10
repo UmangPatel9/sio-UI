@@ -64,7 +64,8 @@ const ResetPassword: React.FC = () => {
                                              onBlur={onBlur}
                                              value={value}
                                              className={`form-control ${errors.password1 ? 'is-invalid' : ''}`}
-                                             placeholder="" 
+                                             placeholder=""  
+                                             mode="md"
                                           />
                                        )}
                                        control={control}
@@ -96,6 +97,7 @@ const ResetPassword: React.FC = () => {
                                              value={value}
                                              className={`form-control ${errors.password2 ? 'is-invalid' : ''}`}
                                              placeholder="" 
+                                             mode="md" 
                                           />
                                        )}
                                        control={control}

@@ -85,6 +85,7 @@ import {
                                       value={value}
                                       className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}
                                       placeholder="" 
+                                      mode="md" 
                                     />
                                 )}
                                 control={control}
@@ -113,7 +114,8 @@ import {
                                       onBlur={onBlur}
                                       value={value}
                                       className={`form-control ${errors.lastName ? 'is-invalid' : ''}`}
-                                      placeholder="" 
+                                      placeholder=""  
+                                      mode="md"
                                     />
                                 )}
                                 control={control}
@@ -142,6 +144,7 @@ import {
                                       value={value}
                                       className={`form-control ${errors.telephone ? 'is-invalid' : ''}`}
                                       placeholder="" 
+                                      mode="md" 
                                     />
                                 )}
                                 control={control}
@@ -179,6 +182,7 @@ import {
                                       value={value}
                                       className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                                       placeholder="" 
+                                      mode="md" 
                                     />
                                 )}
                                 control={control}

@@ -101,7 +101,8 @@ const Home: React.FC = () => {
                                       onBlur={onBlur}
                                       value={value}
                                       className={`form-control ${errors.username ? 'is-invalid' : ''}`}
-                                      placeholder="" 
+                                      placeholder=""
+                                      mode="md" 
                                   />
                                 )}
                                 control={control}
@@ -138,6 +139,7 @@ const Home: React.FC = () => {
                                       value={value}
                                       className={`form-control ${errors.password ? 'is-invalid' : ''}`}
                                       placeholder="" 
+                                      mode="md" 
                                     />
                                 )}
                                 control={control}

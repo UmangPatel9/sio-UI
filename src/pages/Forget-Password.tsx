@@ -61,6 +61,7 @@ const ForgetPassword: React.FC = () => {
                                       value={value}
                                       className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                                       placeholder="" 
+                                      mode="md" 
                                     />
                                  )}
                                  control={control}

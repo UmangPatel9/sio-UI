@@ -84,6 +84,7 @@ import {
                                                     value={value}
                                                     className={`form-control ${errors.organizatiionName ? 'is-invalid' : ''}`}
                                                     placeholder="Add text" 
+                                                    mode="md" 
                                                 />
                                             )}
                                             control={control}

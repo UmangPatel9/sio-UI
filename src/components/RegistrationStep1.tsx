@@ -42,7 +42,8 @@ export const RegistrationStep1: React.FC<any> = ({ next }) => {
                                       onBlur={onBlur}
                                       value={value}
                                       className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}
-                                      placeholder="" 
+                                      placeholder=""  
+                                      mode="md"
                                     />
                                 )}
                                 control={control}
@@ -72,6 +73,7 @@ export const RegistrationStep1: React.FC<any> = ({ next }) => {
                                       value={value}
                                       className={`form-control ${errors.lastName ? 'is-invalid' : ''}`}
                                       placeholder="" 
+                                      mode="md" 
                                     />
                                 )}
                                 control={control}
@@ -99,7 +101,8 @@ export const RegistrationStep1: React.FC<any> = ({ next }) => {
                                       onBlur={onBlur}
                                       value={value}
                                       className={`form-control ${errors.telephone ? 'is-invalid' : ''}`}
-                                      placeholder="" 
+                                      placeholder=""  
+                                      mode="md"
                                     />
                                 )}
                                 control={control}
@@ -137,6 +140,7 @@ export const RegistrationStep1: React.FC<any> = ({ next }) => {
                                       value={value}
                                       className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                                       placeholder="" 
+                                      mode="md" 
                                     />
                                 )}
                                 control={control}
@@ -169,7 +173,8 @@ export const RegistrationStep1: React.FC<any> = ({ next }) => {
                                       onBlur={onBlur}
                                       value={value}
                                       className={`form-control ${errors.password ? 'is-invalid' : ''}`}
-                                      placeholder="" 
+                                      placeholder=""  
+                                      mode="md"
                                     />
                                 )}
                                 control={control}

@@ -91,7 +91,8 @@ import {
                             <IonInput
                                 value="9825198251"
                                 className="form-control"
-                                placeholder=""
+                                placeholder="" 
+                                mode="md"
                                 readonly
                             />
                         </div>
@@ -104,7 +105,8 @@ import {
                             <IonInput 
                                 value="abc@xyz.com"
                                 className="form-control"
-                                placeholder="" 
+                                placeholder=""  
+                                mode="md"
                                 readonly
                             />
                         </div>
