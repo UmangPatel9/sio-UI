@@ -1107,6 +1107,10 @@ body .buy-plan-footer .button.button-clear.clear-button-with-border {
     --background-hover: #2E9BEE;
     --background-activated: #2E9BEE;
 }
+.category-button:hover,
+.category-button:focus {
+    --background: #2E9BEE;
+}
 body .category-button ion-icon {
     font-size: 35px;
     color: #000;
@@ -1313,6 +1317,36 @@ ion-slide {
     margin: 50px 0;
 }
 /* Stock report end  */
+
+/* Spalsh screen start */
+.splash-screen-content ion-grid {
+    padding: 30px 0;
+}
+.splash-screen-content ion-row {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.splash-screen-image {
+    margin-bottom: 50px;
+}
+.splash-screen-header h3 {
+    margin-top: 20px;
+    font-weight: 400;
+}
+.app-name {
+    font-weight: 400;
+    margin-top: 50px;
+    color: #1a1a1a;
+}
+.app-version {
+    margin: 0;
+    color: #1a1a1a;
+    font-weight: normal;
+    margin-top: 70px;
+}
+/* Spalsh screen end */
 
 /* 
 

@@ -94,6 +94,12 @@ import {
 
                         <IonList className="category-list">
                             {renderCategoryList()}
+                            <IonItem className="category-button">
+                                <IonLabel>
+                                    xvz
+                                </IonLabel>
+                                <IonIcon icon="/assets/images/arrow-right-icon.svg" slot="end" />
+                            </IonItem>
                         </IonList>
 
 
