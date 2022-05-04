@@ -13,10 +13,11 @@ import {
     IonIcon,
     IonSelect,
     IonSelectOption,
-    IonTextarea 
+    IonTextarea,
+    IonAlert 
   } from '@ionic/react';
   
-  import { addCircleSharp, removeCircleSharp } from 'ionicons/icons';
+  import { addCircleSharp, removeCircleSharp, close } from 'ionicons/icons';
 
   import { FormProvider, useForm, Controller } from "react-hook-form";
   import { ErrorMessage } from '@hookform/error-message';
@@ -79,6 +80,22 @@ import {
     const brandListArray = [
         { brand1: "ABC", brand2:"XYZ" },
     ];
+
+    const lengthListArray = [
+        { length1: "600", length2:"700" },
+    ];
+
+    const heightListArray = [
+        { height1: "200", height2:"300" },
+    ];
+
+    const widthListArray = [
+        { width1: "100", width2:"200" },
+    ];
+
+    const [lengthList, setLengthlList] = useState(lengthListArray);
+    const [heightList, setHeightList] = useState(heightListArray);
+    const [widthList, setwidthList] = useState(widthListArray);
 
     const [materialList, setMaterialList] = useState(materialListArray);
     const [brandList, setBrandList] = useState(brandListArray);
@@ -172,6 +189,258 @@ import {
             );
         })
     }
+
+    const rendeLengthList = () => {
+        return lengthList.map((x, i) => {
+            return (
+                
+                <IonRow key={i} className="material-select-row ion-align-items-center">
+                    <IonCol size="12" className="ion-no-padding">
+                        <Controller
+                            render={({ field }) => (
+                            <IonSelect
+                                placeholder="Length"
+                                value={field.value}
+                                className={`form-control ${errors.length ? 'is-invalid' : ''}`}
+                                onIonChange={(e) => setValue('length', e.detail.value)}
+                            >
+                                <IonSelectOption value="{x.length1}">{x.length1}</IonSelectOption>
+                                <IonSelectOption value="{x.materail2}">{x.length2}</IonSelectOption>
+                            </IonSelect>
+                            )}
+                            control={control}
+                            name="length"
+                            rules={{ required: 'Please select length' }}
+                        />
+                    </IonCol>
+                    <IonCol size="12" className="ion-no-padding">
+                        <ErrorMessage
+                            errors={errors}
+                            name="length"
+                            as={<div className="error-message" style={{ color: 'red' }} />}
+                        />
+                    </IonCol>
+                </IonRow>
+                
+            );
+        })
+    }
+
+    const renderHeightList = () => {
+        return heightList.map((x, i) => {
+            return (
+                
+                <IonRow key={i} className="material-select-row ion-align-items-center">
+                    <IonCol size="12" className="ion-no-padding">
+                        <Controller
+                            render={({ field }) => (
+                            <IonSelect
+                                placeholder="Height"
+                                value={field.value}
+                                className={`form-control ${errors.height ? 'is-invalid' : ''}`}
+                                onIonChange={(e) => setValue('height', e.detail.value)}
+                            >
+                                <IonSelectOption value={x.height1}>{x.height1}</IonSelectOption>
+                                <IonSelectOption value={x.height2}>{x.height2}</IonSelectOption>
+                            </IonSelect>
+                            )}
+                            control={control}
+                            name="height"
+                            rules={{ required: 'Please select height' }}
+                        />
+                    </IonCol>
+                    <IonCol size="12" className="ion-no-padding">
+                        <ErrorMessage
+                            errors={errors}
+                            name="height"
+                            as={<div className="error-message" style={{ color: 'red' }} />}
+                        />
+                    </IonCol>
+                </IonRow>
+                
+            );
+        })
+    }
+
+    const renderWidthList = () => {
+        return widthList.map((x, i) => {
+            return (
+                
+                <IonRow key={i} className="material-select-row ion-align-items-center">
+                    <IonCol size="12" className="ion-no-padding">
+                        <Controller
+                            render={({ field }) => (
+                            <IonSelect
+                                placeholder="Width"
+                                value={field.value}
+                                className={`form-control ${errors.width ? 'is-invalid' : ''}`}
+                                onIonChange={(e) => setValue('width', e.detail.value)}
+                            >
+                                <IonSelectOption value="{x.width1}">{x.width1}</IonSelectOption>
+                                <IonSelectOption value="{x.width2}">{x.width2}</IonSelectOption>
+                            </IonSelect>
+                            )}
+                            control={control}
+                            name="width"
+                            rules={{ required: 'Please select width' }}
+                        />
+                    </IonCol>
+                    <IonCol size="12" className="ion-no-padding">
+                        <ErrorMessage
+                            errors={errors}
+                            name="width"
+                            as={<div className="error-message" style={{ color: 'red' }} />}
+                        />
+                    </IonCol>
+                </IonRow>
+                
+            );
+        })
+    }
+
+    const defaultList = [
+        { id: "", fileName: "" }
+    ];
+
+    const fileInput = useRef(null);
+    const [removeFile, setRemoveFile] = useState(false);
+    const [fileList, setFileList] = useState(defaultList);
+
+    // handle click event of the Remove button
+    const handleRemoveClick = (index:any) => {
+        const list = [...fileList];
+        list.splice(index, 1);
+        setFileList(list);
+    };
+
+    const loadImageFromDevice = (event:any) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.readAsArrayBuffer(file);
+        reader.onload = () => {
+            // get the blob of the image:
+            let blob: Blob = new Blob([new Uint8Array((reader.result as ArrayBuffer))]);
+            // create blobURL, such that we could use it in an image element:
+            let blobURL: string = URL.createObjectURL(blob);
+            let filename: string = file.name;
+            console.log(filename);
+            setFileList([...fileList, { id: "", fileName: filename}]);
+        };
+
+        reader.onerror = (error) => {
+            //handle errors
+        };
+    };
+
+    const renderList = () => {
+        return fileList.map((x, i) => {
+            return (
+                <div key={i} className="uploaded-file">
+                    <p className="uploaded-file-name read-only">{x.fileName}</p>
+                    <IonButton fill="clear" onClick={() => setRemoveFile(true)}>
+                        <IonIcon icon={close} />
+                    </IonButton>
+                    <IonAlert
+                        isOpen={removeFile}
+                        onDidDismiss={() => setRemoveFile(false)}
+                        cssClass='red-alert'
+                        mode='md'
+                        header={'Remove File'}
+                        message={'<p>Are you sure you want to remove this file?</p>'}
+                        buttons={[
+                            {
+                                text: 'Yes',
+                                cssClass: 'btn-secondary',
+                                handler: () => {
+                                    handleRemoveClick(i);
+                                    console.log('Exit File Okay');
+                                }
+                            },
+                            {
+                                text: 'No',
+                                role: 'cancel',
+                                cssClass: 'btn-outline',
+                                handler: () => {
+                                    console.log('Exit File Cancel');
+                                }
+                            }
+                            
+                        ]}
+                    />
+                </div>
+            );
+        })
+    }
+
+    const fileInput1 = useRef(null);
+    const [removeFile1, setRemoveFile1] = useState(false);
+    const [fileList1, setFileList1] = useState(defaultList);
+
+    // handle click event of the Remove button
+    const handleRemoveClick1 = (index:any) => {
+        const list = [...fileList1];
+        list.splice(index, 1);
+        setFileList1(list);
+    };
+
+    const loadImageFromDevice1 = (event:any) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.readAsArrayBuffer(file);
+        reader.onload = () => {
+            // get the blob of the image:
+            let blob: Blob = new Blob([new Uint8Array((reader.result as ArrayBuffer))]);
+            // create blobURL, such that we could use it in an image element:
+            let blobURL: string = URL.createObjectURL(blob);
+            let filename: string = file.name;
+            console.log(filename);
+            setFileList1([...fileList1, { id: "", fileName: filename}]);
+        };
+
+        reader.onerror = (error) => {
+            //handle errors
+        };
+    };
+
+    const renderList1 = () => {
+        return fileList1.map((x, i) => {
+            return (
+                <div key={i} className="uploaded-file">
+                    <p className="uploaded-file-name read-only">{x.fileName}</p>
+                    <IonButton fill="clear" onClick={() => setRemoveFile1(true)}>
+                        <IonIcon icon={close} />
+                    </IonButton>
+                    <IonAlert
+                        isOpen={removeFile1}
+                        onDidDismiss={() => setRemoveFile1(false)}
+                        cssClass='red-alert'
+                        mode='md'
+                        header={'Remove File'}
+                        message={'<p>Are you sure you want to remove this file?</p>'}
+                        buttons={[
+                            {
+                                text: 'Yes',
+                                cssClass: 'btn-secondary',
+                                handler: () => {
+                                    handleRemoveClick1(i);
+                                    console.log('Exit File Okay');
+                                }
+                            },
+                            {
+                                text: 'No',
+                                role: 'cancel',
+                                cssClass: 'btn-outline',
+                                handler: () => {
+                                    console.log('Exit File Cancel');
+                                }
+                            }
+                            
+                        ]}
+                    />
+                </div>
+            );
+        })
+    }
   
     return (
         <IonPage>
@@ -196,7 +465,73 @@ import {
                         <h2 className="category-name">CPVC Pipes Fittings</h2>
 
                         <FormProvider {...methods}>
-                          <form className="material-add-form" onSubmit={handleSubmit(onSubmit)}>
+                            <form className="material-add-form" onSubmit={handleSubmit(onSubmit)}>
+
+                                <IonRow className="size-select-row">
+                                    <IonCol size="3">
+                                        <IonLabel className="form-lable material-lable">Size</IonLabel>
+                                    </IonCol>
+                                    <IonCol  size="9">
+                                        <IonRow className="material-select-row  ion-align-items-center">
+                                            <IonCol size="4" className="ion-no-padding">
+                                                <IonLabel className="form-lable small-form-lable ion-text-center">Length</IonLabel>
+                                                {rendeLengthList()}
+                                            </IonCol>
+                                            <IonCol size="4">
+                                                <IonLabel className="form-lable small-form-lable ion-text-center">Height</IonLabel>
+                                                {renderHeightList()}
+                                            </IonCol>
+                                            <IonCol size="4" className="ion-no-padding">
+                                                <IonLabel className="form-lable small-form-lable ion-text-center">Width</IonLabel>
+                                                {renderWidthList()}
+                                            </IonCol>
+                                        </IonRow>
+                                        {/* {renderMaterialList()} */}
+                                        {/* <button onClick={handleClick}>Hello</button> */}
+
+                                        {Array.from(Array(counter)).map((c, index) => {
+                                            return (
+                
+                                                <IonRow key={c} className="material-select-row ion-align-items-center">
+                                                    <IonCol size="10" className="ion-no-padding">
+                                                        <Controller
+                                                            render={({ field: { onChange, onBlur, value } }) => (
+                                                                <IonInput 
+                                                                    type={"text"}
+                                                                    onIonChange={onChange}
+                                                                    onBlur={onBlur}
+                                                                    value={value}
+                                                                    className={`form-control ${errors.newMaterial ? 'is-invalid' : ''}`}
+                                                                    placeholder="Add text" 
+                                                                    mode="md" 
+                                                                />
+                                                            )}
+                                                            control={control}
+                                                            name="newMaterial"
+                                                            rules={{ required: 'Please enter material name' }}
+                                                        />
+                                                    </IonCol>
+                                                    <IonCol size="2">
+                                                        <IonButton fill="clear" onClick={handleRemoveMaterial}><IonIcon icon={removeCircleSharp} /></IonButton>
+                                                    </IonCol>
+                                                    <IonCol size="12" className="ion-no-padding">
+                                                        <IonButton className="small-button" fill="solid" >
+                                                            Add
+                                                        </IonButton>
+                                                        <ErrorMessage
+                                                            errors={errors}
+                                                            name="newMaterial"
+                                                            as={<div className="error-message" style={{ color: 'red' }} />}
+                                                        />
+                                                    </IonCol>
+                                                </IonRow>
+                                                
+                                            );
+                                            // <input key={c} type="text"></input>;
+                                        })}
+                                    </IonCol>
+                                </IonRow>
+
                                 <IonRow className="">
                                     <IonCol size="3">
                                         <IonLabel className="form-lable material-lable">Material</IonLabel>
@@ -402,6 +737,47 @@ import {
 
                                 <IonRow className="">
                                     <IonCol size="3">
+                                        <IonLabel className="form-lable two-line-label material-lable">Number of Blocks:</IonLabel>
+                                    </IonCol>
+                                    <IonCol size="9">
+                                        <IonRow>
+                                        <IonCol size="4" className="ion-no-padding">
+                                            <Controller
+                                                render={({ field: { onChange, onBlur, value } }) => (
+                                                <IonInput 
+                                                    type="number"
+                                                    onIonChange={onChange}
+                                                    onBlur={onBlur}
+                                                    value={value}
+                                                    className={`form-control ${errors.blocks ? 'is-invalid' : ''}`}
+                                                    placeholder="" 
+                                                    mode="md" 
+                                                    />
+                                                )}
+                                                control={control}
+                                                name="blocks"
+                                                rules={{
+                                                    required: "Please add number of blocks"    
+                                                }}
+                                            />
+                                        </IonCol>
+                                        <IonCol size="4" className="ion-no-padding ion-padding-start">
+                                            <p>Pcs</p>
+                                        </IonCol>
+                                        <IonCol size="12" className="ion-no-padding">
+                                            <ErrorMessage
+                                                errors={errors}
+                                                name="quatity"
+                                                as={<div className="error-message" style={{ color: 'red' }} />}
+                                            />
+                                        </IonCol>
+                                        
+                                        </IonRow>
+                                    </IonCol>
+                                </IonRow>
+
+                                <IonRow className="">
+                                    <IonCol size="3">
                                         <IonLabel className="form-lable material-lable">Note</IonLabel>
                                     </IonCol>
                                     <IonCol size="9">
@@ -433,6 +809,59 @@ import {
                                         </IonCol>
                                         
                                         </IonRow>
+                                    </IonCol>
+                                </IonRow>
+
+                                <IonRow className="">
+                                    <IonCol size="6">
+                                        <input
+                                            ref={fileInput}
+                                            hidden
+                                            type="file"
+                                            accept="image/png, image/jpg, image/jpeg"
+                                            name="postFile"
+                                            onChange={loadImageFromDevice}
+                                            onClick={() => {
+                                                console.log('onClick');
+                                            }}
+                                        />
+                                        <IonButton 
+                                            className="upload-photo-btn yellow-button" 
+                                            fill="solid" 
+                                            shape="round" 
+                                            onClick={() => {
+                                                // @ts-ignore
+                                                fileInput?.current?.click();
+                                            }}
+                                        >
+                                            Capture Image-1
+                                        </IonButton>
+                                        {renderList()}
+                                    </IonCol>
+                                    <IonCol size="6">
+                                        <input
+                                            ref={fileInput1}
+                                            hidden
+                                            type="file"
+                                            accept="image/png, image/jpg, image/jpeg"
+                                            name="postFile"
+                                            onChange={loadImageFromDevice1}
+                                            onClick={() => {
+                                                console.log('onClick');
+                                            }}
+                                        />
+                                        <IonButton 
+                                            className="upload-photo-btn yellow-button" 
+                                            fill="solid" 
+                                            shape="round" 
+                                            onClick={() => {
+                                                // @ts-ignore
+                                                fileInput1?.current?.click();
+                                            }}
+                                        >
+                                            Capture Image-2
+                                        </IonButton>
+                                        {renderList1()}
                                     </IonCol>
                                 </IonRow>
 

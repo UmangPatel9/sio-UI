@@ -1141,6 +1141,72 @@ body .button.button-solid.small-button {
     --padding-start: 20px;
     --padding-end: 20px;
 }
+.material-add-form .small-form-lable {
+    font-size: 14px;
+}
+body .size-select-row ion-select {
+    padding: 5px;
+}
+.size-select-row .form-lable.material-lable:not(.small-form-label) {
+    padding-top: 40px;
+}
+.form-lable.two-line-label {
+    padding-top: 5px;
+}
+body .red-alert .alert-head.sc-ion-alert-md {
+    background-color: #FF6363;
+}
+.uploaded-file {
+    display: flex;
+    align-items: center;
+}
+.uploaded-file + .uploaded-file {
+    margin-top: 15px;
+}
+.uploaded-file-name {
+    width: 300px;
+    border: 1px solid #7c7c7c;
+    background-color: #fff;
+    border-radius: 15px;
+    min-height: 48px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    line-height: 1.2;
+    padding: 0 20px;
+    margin: 0;
+    font-family: 'Segoe UI';
+    font-size: 16px;
+    font-weight: 600;
+}
+.uploaded-file-name.read-only {
+    border-color: transparent;
+    background-color: #e5e5e5;
+}
+.uploaded-file ion-icon {
+    color: #FF6363;
+    font-size: 30px;
+}
+.upload-photo-block {
+    margin-top: 15px;
+}
+body .button.upload-photo-btn.yellow-button.button-solid {
+    --padding-start: 15px;
+    --padding-end: 15px;
+    width: 100%;
+}
+.uploaded-file-name.read-only:empty, 
+.uploaded-file-name.read-only:empty + .button {
+    display: none;
+}
+body .alert-head.sc-ion-alert-md {
+    text-align: center;
+    color: #fff;
+}
+body .alert-title.sc-ion-alert-md {
+    color: #fff;
+    font-weight: 600;
+}
 /* Inward entry end  */
 
 /* Material stock start  */
