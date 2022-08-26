@@ -47,11 +47,11 @@ import {
     const categoryListArray = [
         { categoryName: "CPVC Pipes Fittings", categoryURL:"/inward-entry" },
         { categoryName: "CPVC Brass Insert Fittings", categoryURL:"/inward-entry" },
-        { categoryName: "UPVC Pipes Fittings", categoryURL:"/inward-entry" },
-        { categoryName: "GI Fittings Pipes", categoryURL:"/inward-entry" },
-        { categoryName: "PVC Solvent Joint Fittings", categoryURL:"/inward-entry" },
-        { categoryName: "Faucets Concealed Fitting", categoryURL:"/inward-entry" },
-        { categoryName: "Sanitary Fitting EWC", categoryURL:"/inward-entry" },
+        // { categoryName: "UPVC Pipes Fittings", categoryURL:"/inward-entry" },
+        // { categoryName: "GI Fittings Pipes", categoryURL:"/inward-entry" },
+        // { categoryName: "PVC Solvent Joint Fittings", categoryURL:"/inward-entry" },
+        // { categoryName: "Faucets Concealed Fitting", categoryURL:"/inward-entry" },
+        // { categoryName: "Sanitary Fitting EWC", categoryURL:"/inward-entry" },
     ];
 
     const [categoryList, setCategoryList] = useState(categoryListArray);

@@ -1082,9 +1082,11 @@ body .buy-plan-footer .button.button-clear.clear-button-with-border {
     padding-left: 15px;
 }
 .category-list {
-    padding: 0;
-    border-bottom: 1px solid #808080;
+    border-bottom: 1px solid grey;
     margin-bottom: 50px;
+    max-height: 38%;
+    overflow-y: scroll;
+    padding: 0;
 }
 .category-button {
     border-top: 1px solid #808080;
@@ -1268,6 +1270,7 @@ ion-segment-button {
     --padding-end: 0;
     text-transform: none;
     font-size: 16px;
+    --color: var(--color);
 }
 ion-segment-button.segment-button-checked {
     --border-color: #414BB2;
@@ -1347,6 +1350,16 @@ ion-slide {
     margin-top: 70px;
 }
 /* Spalsh screen end */
+
+/* 404 page start */
+.page-not-found-section h1 {
+    font-size: 55px;
+    margin: 35px 0 25px;
+}
+.page-not-found-section h6 {
+    margin: 0;
+}
+/* 404 page end */
 
 /* 
 

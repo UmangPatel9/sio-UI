@@ -16,7 +16,7 @@ import {
     IonItem
 } from '@ionic/react';
 
-import { createOutline, arrowForwardCircleSharp } from 'ionicons/icons';
+import { createOutline, arrowForwardCircleSharp, removeCircleSharp } from 'ionicons/icons';
 
 import '../assets/css/Custom.css';
 import '../assets/css/Responsive.css';
@@ -51,7 +51,7 @@ const SelectWorkspace: React.FC = () => {
                         <IonList mode="md" className="">
                             <IonItem className="position-relative">
                                 <IonLabel mode='md'>ABC Builder Group</IonLabel>
-                                <IonIcon icon={arrowForwardCircleSharp} slot="end" />
+                                <IonIcon icon={removeCircleSharp} slot="end" />
                                 <IonButton className="abosolute-button-with-link" expand="full" fill="clear" slot="end" routerLink={Routes.selectProject}>
                                 </IonButton>
                             </IonItem>

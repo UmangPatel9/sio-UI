@@ -159,6 +159,11 @@
         padding: 0;
     }
     /* Stock Report end  */
+    
+	.category-list {
+		height: auto;
+		max-height: 100%;
+	}
 
 }
 

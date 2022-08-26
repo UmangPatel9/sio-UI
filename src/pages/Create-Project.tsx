@@ -353,7 +353,24 @@ import {
                                     <IonCol size="12" className="ion-margin-top">
                                         <IonLabel className="form-lable"><h4><b>Start Date:</b></h4></IonLabel>
                                         <div className="date-picker">
-                                            <IonInput id="date-input-2" value={popoverDate2} />
+                                            <Controller
+                                                render={({ field: { onChange, onBlur, value } }) => (
+                                                    <IonInput 
+                                                    id="date-input-2"
+                                                        onIonChange={onChange}
+                                                        onBlur={onBlur}
+                                                        value={popoverDate2}
+                                                        className={`form-control ${errors.date ? 'is-invalid' : ''}`}
+                                                        placeholder="" 
+                                                        mode="md" 
+                                                    />
+                                                )}
+                                                control={control}
+                                                name="date"
+                                                rules={{
+                                                    required: "Please select date."  
+                                                }}
+                                            />
                                             <IonButton fill="clear" id="open-modal">
                                                 <IonIcon icon={calendar} />
                                             </IonButton>
@@ -373,11 +390,11 @@ import {
                                                 </IonContent>
                                             </IonModal>
                                         </div>
-                                        {/* <ErrorMessage
+                                        <ErrorMessage
                                             errors={errors}
-                                            name="city"
+                                            name="date"
                                             as={<div className="error-message" style={{ color: 'red' }} />}
-                                        /> */}
+                                        />
                                     </IonCol>
 
                                     <IonCol size="12" className="ion-margin-top">

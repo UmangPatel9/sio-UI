@@ -65,7 +65,6 @@ import {
                     </IonLabel>
                     <IonIcon icon="/assets/images/arrow-right-icon.svg" slot="end" />
                 </IonItem>
-                
             );
         })
     }
