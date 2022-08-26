@@ -174,7 +174,7 @@ const App: React.FC = () => {
             <Route exact path={Routes.spalshScreen}>
               <SpalshScreen />
             </Route>
-            <Route path="*">
+            <Route exact path={Routes.pageNotFound}>
               <PageNotFound />
             </Route>
             <Route path="/page/:name" exact={true}>
