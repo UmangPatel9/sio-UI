@@ -30,6 +30,7 @@ import StockReport from './pages/Stock-Report';
 import StockUsedReport from './pages/Stock-Used-Report';
 import SpalshScreen from './pages/Splash-screen';
 import PageNotFound from './pages/404';
+import PrivacyPolicy from './pages/Privacy-Policy';
 
 import Menu from './components/Menu';
 import Page from './pages/Page';
@@ -81,7 +82,8 @@ export const Routes = {
   stockReport: '/stock-report',
   stockUsedReport: '/stock-used-report',
   spalshScreen: '/splash-screen',
-  pageNotFound: '/page-not-found'
+  pageNotFound: '/page-not-found',
+  privacyPolicy: '/privacy-policy'
 }
 
 setupIonicReact();
@@ -176,6 +178,9 @@ const App: React.FC = () => {
             </Route>
             <Route exact path={Routes.pageNotFound}>
               <PageNotFound />
+            </Route>
+            <Route exact path={Routes.privacyPolicy}>
+              <PrivacyPolicy />
             </Route>
             <Route path="/page/:name" exact={true}>
               <Page />
